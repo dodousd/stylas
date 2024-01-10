@@ -10,55 +10,225 @@
     
     .TUR > a:before {
         background-image: url(//futbolgratisenhd.com/flags/tr.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     
     .ENG > a:before {
         background-image: url(//futbolgratisenhd.com/flags/en.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .ALE > a:before {
         background-image: url(//futbolgratisenhd.com/flags/de.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .FRA > a:before {
         background-image: url(//futbolgratisenhd.com/flags/fr.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .HOL > a:before {
         background-image: url(//futbolgratisenhd.com/flags/nl.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .POR > a:before {
         background-image: url(//futbolgratisenhd.com/flags/pt.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .MEX > a:before {
         background-image: url(//futbolgratisenhd.com/flags/mx.png);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .ES > a:before {
         background-image: url(//futbolgratisenhd.com/flags/es.png);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .IT > a:before {
         background-image: url(//futbolgratisenhd.com/flags/it.png);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .BEL > a:before {
         background-image: url(//futbolgratisenhd.com/flags/be.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .COSTARICA > a:before {
         background-image: url(//futbolgratisenhd.com/flags/cr.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .ESC > a:before {
         background-image: url(//futbolgratisenhd.com/flags/sx.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .USA > a:before {
         background-image: url(//futbolgratisenhd.com/flags/us.png);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .FUT > a:before {
         background-image: url(//futbolgratisenhd.com/flags/international.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .COL > a:before {
         background-image: url(//futbolgratisenhd.com/flags/co.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .ATP > a:before {
         background-image: url(//futbolgratisenhd.com/flags/atp.webp);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .ETC > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 1em; 
+        width: 2em;
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        margin: -.5em 0 0; 
     }
     .ETC > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/en.png);
