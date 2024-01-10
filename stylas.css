@@ -2,8 +2,12 @@
 0 0 #000}.menu ul li a {background: #fff;border-bottom: 1px solid #efeff0;width: 100%;height: 2.8em;line-height: 2.8em;text-indent: 3.75em;display: block;position: relative;font-family: arial, Arial, Helvetica, sans-serif;font-size: 1em;font-weight: 500;color: #789}.menu ul li:last-child a {border-bottom: 1px solid #33373d}.menu>li>a:hover,.menu>li>a.active{background-color:#2d2d30;background-image:-webkit-gradient(linear,lefttop,left bottom,from(rgb(128,128,128)),to(rgb(128,128,128)));background-image:-webkit-linear-gradient(top,rgb(199,197,197),rgb(218,214,214));background-image:-moz-linear-gradient(top,rgb(199,197,197),rgb(218,214,214));background-image:-o-linear-gradient(top,rgb(199,197,197),rgb(218,214,214));background-image:-ms-linear-gradient(top,rgb(199,197,197),rgb(218,214,214));background-image:linear-gradient(top,rgb(199,197,197),rgb(218,214,214)); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#606060', EndColorStr='#202020');border-bottom: 1px solid #404040; -webkit-box-shadow: inset 0 1px 0 0 #404040;-moz-box-shadow: inset 0 1px 0 0 #404040;box-shadow: inset 0 1px 0 0 #404040}.menu>li>a.active {border-bottom: 0 solid #404040}@media only screen and (max-width: 600px) {.menu > li > a:before {left: 22px;}}.menu > li > 
 a:before {content: '';background-repeat: no-repeat;background-size: contain; background-position: center;font-size: 36px;height: 0.8em;width: 1.7em;position: absolute;left: 50px;top: 50%;margin: -.45em 0 0;} .menu>li>a span {font-size: .95em;display: inline-block;position: absolute;left: .3em;top: 50%;background: #fff;line-height: 1em;height: 1em;padding: .3em .6em;margin: -.8em 0 0;color: #222d36;text-indent: 0;text-align: 
 center;-webkit-border-radius: .769em;-moz-border-radius: .769em;border-radius: .569em; -webkit-box-shadow: 
-inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);-moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);text-shadow: 0 1px 0 rgba(0, 0, 0, .5); font-weight: 500}.menu>li>a:hover span,.menu>li a.active span {background: 404040}.menu>li>ul li a:before {content: '►';font-size: 9px;color: #2f00ff; position: absolute;width: 1em;height: 1em;top: 0;left: -2.7em}.menu>li>ul li:hover a,.menu>li>ul li:hover a 
-span,.menu>li>ul li:hover a:before { color: #2e9afe}.menu ul>li>a span {font-size: .857em;display: inline-block;position: absolute;right: 1em;top: 50%;background: #fff;border: 2px solid #2f00ff;line-height: 1em;height: 1em;padding: 0.4em 0.7em;margin: -0.9em 0 0;color: #000;text-indent: 0;text-align: center;-webkit-border-radius: 0.769em;-moz-border-radius: 769em;border-radius: 769em;text-shadow: 0 0 0 rgba(255,255,255,.01);} 
+inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);-moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);text-shadow: 0 1px 0 rgba(0, 0, 0, .5); font-weight: 500}
+.menu>li>a:hover span,.menu>li a.active span {background: 404040}
+.menu>li>ul li a:before {content: '►';font-size: 9px;color: #2f00ff; position: absolute;width: 1em;height: 1em;top: 0;left: -2.7em}
+.menu>li>ul li:hover a,.menu>li>ul li:hover a 
+span,.menu>li>ul li:hover a:before { color: #2e9afe}
+.menu ul>li>a span {font-size: .857em;display: inline-block;position: absolute;right: 1em;top: 50%;background: #fff;border: 2px solid #2f00ff;line-height: 1em;height: 1em;padding: 0.4em 0.7em;margin: -0.9em 0 0;color: #000;text-indent: 0;text-align: center;-webkit-border-radius: 0.769em;-moz-border-radius: 769em;border-radius: 769em;text-shadow: 0 0 0 rgba(255,255,255,.01);} 
 div.sombreada_css3 {background-color: #8baf1c;width: 100%px;padding: 12px;color: #002399;box-shadow: 0px 
 1px 1px #ec0505;-webkit-box-shadow: 0px 1px 1px #ec0505; -moz-box-shadow: 0px 1px 1px #ec0505;}
 
@@ -111,7 +115,7 @@ div.sombreada_css3 {background-color: #8baf1c;width: 100%px;padding: 12px;color:
     height: 1em; 
     width: 2em;
     position: absolute;
-    left: 51px;
+    left: 70px;
     top: 50%;
     margin: -.5em 0 0; 
 }
@@ -124,7 +128,7 @@ div.sombreada_css3 {background-color: #8baf1c;width: 100%px;padding: 12px;color:
     height: 1em; 
     width: 2em;
     position: absolute;
-    left: 45px;
+    left: 70px;
     top: 50%;
     margin: -.5em 0 0; 
 }
@@ -138,7 +142,7 @@ div.sombreada_css3 {background-color: #8baf1c;width: 100%px;padding: 12px;color:
     height: 1em; 
     width: 2em;
     position: absolute;
-    left: 51px;
+    left: 70px;
     top: 50%;
     margin: -.5em 0 0; 
 }
@@ -151,7 +155,7 @@ div.sombreada_css3 {background-color: #8baf1c;width: 100%px;padding: 12px;color:
     height: 1em; 
     width: 2em;
     position: absolute;
-    left: 51px;
+    left: 70px;
     top: 50%;
     margin: -.5em 0 0; 
 }
