@@ -185,6 +185,19 @@
         top: 55%;
         margin: -.5em 0 0; 
     }
+    .menu > li.HANDBALL > a:before {
+        background-image: url(//futbolgratisenhd.com/flags/handball.png);
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-position: center; 
+        font-size: 36px;
+        height: 0.9em; 
+        width: 2em;
+        position: absolute;
+        left: 55px;
+        top: 55%;
+        margin: -.5em 0 0; 
+    }
     .menu > li.AEW > a:before {
         background-image: url(//futbolgratisenhd.com/flags/aewusa.jpg);
         background-repeat: no-repeat;
