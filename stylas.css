@@ -11,7 +11,7 @@
          height: 0.8em;
          width: 1.7em;
          position: absolute;
-         left: 55px;top: 50%;
+         left: 50px;top: 50%;
          margin: -.45em 0 0;}
      .menu>li>a span {font-size: .95em;display: inline-block;position: absolute;left: .3em;top: 50%;background: #fff;line-height: 1em;height: 1em;padding: .3em .6em;margin: -.8em 0 0;color: #222d36;text-indent: 0;text-align: 
     center;-webkit-border-radius: .769em;-moz-border-radius: .769em;border-radius: .569em; -webkit-box-shadow: 
@@ -154,7 +154,7 @@
         height: 1em; 
         width: 2em;
         position: absolute;
-        left: 55px;
+        left: 45px;
         top: 50%;
         margin: -.5em 0 0; 
     }
