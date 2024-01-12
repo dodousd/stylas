@@ -59,10 +59,7 @@
         background-image: url(//futbolgratisenhd.com/flags/it.png);
 
     }
-    .BEL > a:before {
-        background-image: url(//futbolgratisenhd.com/flags/be.webp);
 
-    }
     .COSTARICA > a:before {
         background-image: url(//futbolgratisenhd.com/flags/cr.webp);
 
@@ -87,12 +84,14 @@
         background-image: url(https://api.sofascore.app/api/v1/unique-tournament/270/image);
   
     }
-    .ETC > a:before {
-        background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+
+
+    .GRE > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/gr.png);
 
     }
-    .ETC > a:before {
-        background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+    .BEL > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/be.png);
     }
     .ETC > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/en.png);
@@ -161,7 +160,16 @@
     
     .menu > li.WWE > a:before {
         background-image: url(//futbolgratisenhd.com/flags/wwe.png);
-
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        font-size: 36px;
+        height: 0.69em;
+        width: 1.6em;
+        position: absolute;
+        left: 40px;
+        top: 63%;
+        margin: -0.5em 0 0;
     }
     .menu > li.AFCCUP > a:before {
         background-image: url(//futbolgratisenhd.com/flags/afccup.png);
