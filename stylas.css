@@ -162,6 +162,12 @@
         background-image: url(//futbolgratisenhd.com/flags/wwe.png);
 
     }
+
+    .menu > li.BOX > a:before {
+        background-image: url(https://w1.pngwing.com/pngs/566/801/png-transparent-world-heart-boxing-glove-aiba-world-boxing-championships-punch-sports-punching-training-bags-red-boxing-equipment.png);
+
+    }
+    
     .menu > li.AFCCUP > a:before {
         background-image: url(//futbolgratisenhd.com/flags/afccup.png);
 
