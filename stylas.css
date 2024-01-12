@@ -93,14 +93,14 @@
     .BEL > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/be.png);
     }
-    .ETC > a:before {
-        background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+    .DZA > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/dz.png);
     }
-    .ETC > a:before {
-        background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+    .SCO > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/sx.png);
     }
-    .ETC > a:before {
-        background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+    .TE > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/atp.png?v=2);
     }
     .ETC > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/en.png);
@@ -196,7 +196,7 @@
             height: 1.0em; 
             width: 0.7em;
         }
- 
+
         .menu > li.NBA > a:before {
           
             height: 1.0em; 
