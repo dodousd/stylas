@@ -160,16 +160,7 @@
     
     .menu > li.WWE > a:before {
         background-image: url(//futbolgratisenhd.com/flags/wwe.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        font-size: 36px;
-        height: 0.69em;
-        width: 1.6em;
-        position: absolute;
-        left: 40px;
-        top: 63%;
-        margin: -0.5em 0 0;
+
     }
     .menu > li.AFCCUP > a:before {
         background-image: url(//futbolgratisenhd.com/flags/afccup.png);
