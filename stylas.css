@@ -206,22 +206,12 @@
             height: 1.0em; 
             width: 0.7em;
         }
-        .menu > li.WWE > a:before {
-          
-            height: 1.0em; 
-            width: 0.6em;
-            left: 45px;
-            top: 51%;
-        }
+ 
         .menu > li.NBA > a:before {
           
             height: 1.0em; 
             width: 0.7em;
-        }.menu > li.AFCCUP > a:before {
-          
-            height: 0.95em; 
-            width: 0.6em;
-            left: 48px;
+        
         }.menu > li.AEW > a:before {
           
             height: 0.95em; 
