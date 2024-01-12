@@ -83,7 +83,7 @@
         background-image: url(//futbolgratisenhd.com/flags/co.webp);
   
     }
-    .ATP > a:before {
+    .TE > a:before {
         background-image: url(//futbolgratisenhd.com/flags/atp.webp);
   
     }
@@ -161,29 +161,11 @@
     
     .menu > li.WWE > a:before {
         background-image: url(//futbolgratisenhd.com/flags/wwe.png);
-        background-repeat: no-repeat;
-        background-size: contain; 
-        background-position: center; 
-        font-size: 36px;
-        height: 0.69em; 
-        width: 1.6em;
-        position: absolute;
-        left: 55px;
-        top: 63%;
-        margin: -.5em 0 0; 
+
     }
     .menu > li.AFCCUP > a:before {
         background-image: url(//futbolgratisenhd.com/flags/afccup.png);
-        background-repeat: no-repeat;
-        background-size: contain; 
-        background-position: center; 
-        font-size: 36px;
-        height: 0.9em; 
-        width: 2em;
-        position: absolute;
-        left: 55px;
-        top: 55%;
-        margin: -.5em 0 0; 
+
     }
     .menu > li.HANDBALL > a:before {
         background-image: url(//futbolgratisenhd.com/flags/handball.png);
@@ -191,16 +173,7 @@
     }
     .menu > li.AEW > a:before {
         background-image: url(//futbolgratisenhd.com/flags/aewusa.jpg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        font-size: 36px;
-        height: 0.9em;
-        width: 1em;
-        position: absolute;
-        left: 55px;
-        top: 55%;
-        margin: -0.5em 0 0;
+
     }
     @media only screen and (max-width: 600px) {
         body {
