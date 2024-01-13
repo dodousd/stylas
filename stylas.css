@@ -102,8 +102,11 @@
     .TE > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/atp.png?v=2);
     }
-    .ETC > a:before {
-        background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+
+
+    
+    .UFC > a:before {
+        background-image: url(//futbolgratisenhd.com/flags/UFC.png);
     }
     .ETC > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/en.png);
