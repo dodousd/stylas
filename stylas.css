@@ -103,8 +103,10 @@
         background-image: url(https://www.sofascore.com/static/images/flags/atp.png?v=2);
     }
 
-
     
+    .NFL > a:before {
+        background-image: url(//futbolgratisenhd.com/flags/nfl.png);
+    }
     .UFC > a:before {
         background-image: url(//futbolgratisenhd.com/flags/UFC.png);
     }
