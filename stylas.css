@@ -100,8 +100,8 @@
         background-image: url(https://www.sofascore.com/static/images/flags/sx.png);
     }
 
-    .PAR>a:before {
-    background-image: url(/flags/paraguay.webp?v);
+    .PAR > a:before {
+    background-image: url(https://www.sofascore.com/static/images/flags/py.png);
 }
     .TE > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/atp.png?v=2);
