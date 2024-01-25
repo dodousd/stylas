@@ -127,6 +127,9 @@
     .CROI > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/hr.png);
     }
+    .AR > a:before {
+        background-image: url(//futbolgratisenhd.com/flags/ar.webp);
+    }
     .ETC > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/en.png);
     }
