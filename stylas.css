@@ -121,8 +121,8 @@
     .BRA > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/br.png);
     }
-    .ETC > a:before {
-        background-image: url(https://www.sofascore.com/static/images/flags/en.png);
+    .PE > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/pe.png);
     }
     .CROI > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/hr.png);
