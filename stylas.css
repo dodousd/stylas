@@ -145,9 +145,45 @@
     }
 
     
-    .SERIECARIBE> a:before {
+    .SERIECARIBE > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/seriecaribe.png);
     }
+
+    
+    .LIB > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/lib.png);
+    }
+
+    
+    .UYL > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/uyl.png);
+    }
+
+    .LCC > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/lcc1.png);
+    }
+
+    
+    .CICLISMO > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/ciclismo.png);
+    }
+
+    
+    .FUTSAL-COPA > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/futsal.png);
+    }
+
+
+
+    
+
+    
+
+    .COPADAVIS > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/davis.png);
+    }
+
+
 
 
     .SERIECARIBE > a:before {
