@@ -153,7 +153,9 @@
     .LIB > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/lib.png);
     }
-
+    .ARA > a:before {
+        background-image: url(//futbolgratisenhd.com/flags/ara.webp);
+    }
     
     .UYL > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/uyl.png);
