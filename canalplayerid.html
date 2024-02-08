@@ -8,12 +8,7 @@
     <meta name="referrer" content="no-referrer" />
     <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
     <script>jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";</script>
-    <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
-        <script type="text/javascript">
-            aclib.runPop({
-                zoneId: '7440630',
-            });
-        </script>
+
     <style>
         body { margin: 0px; }
         .ViostreamIframe { overflow: hidden; padding-top: 56.25%; position: relative; }
@@ -21,7 +16,30 @@
     </style>
 </head>
 <body>
-    <div id="player" class="ViostreamIframe"></div>
+    <div id="player-container" class="ViostreamIframe">
+        <!-- iFrame para el reproductor -->
+        <iframe id="player" src="URL_DE_TU_REPRODUCTOR" frameborder="0" allowfullscreen></iframe>
+        
+        <!-- Botón sobre el reproductor -->
+        <div style="position: absolute; top: 10px; left: 10px;">
+          <a href="" class="boton_2" id="refreshButton">REFRESH</a>
+        
+        </div>
+        <script>
+          document.getElementById('refreshButton').addEventListener('click', function() {
+              // Obtiene el contenedor del iframe
+              var container = document.getElementById('player-container');
+  
+              // Obtiene el elemento del iFrame por su ID
+              var iframe = document.getElementById('player');
+  
+              // Clona el iframe
+              var newIframe = iframe.cloneNode(true);
+  
+              // Reemplaza el iframe existente con el nuevo clon
+              container.replaceChild(newIframe, iframe);
+          });
+      </script>
 
     <script>
         function getParameterByName(name) {
