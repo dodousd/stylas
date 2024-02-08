@@ -161,6 +161,10 @@
         background-image: url(https://futbolgratisenhd.com/flags/uyl.png);
     }
 
+    .UEFA_NATIONS > a:before {
+        background-image: url(//futbolgratisenhd.com/flags/nationsleague.png);
+    }
+
     .LCC > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/lcc1.png);
     }
