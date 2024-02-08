@@ -16,30 +16,7 @@
     </style>
 </head>
 <body>
-    <div id="player-container" class="ViostreamIframe">
-        <!-- iFrame para el reproductor -->
-        <iframe id="player" src="URL_DE_TU_REPRODUCTOR" frameborder="0" allowfullscreen></iframe>
-        
-        <!-- Botón sobre el reproductor -->
-        <div style="position: absolute; top: 10px; left: 10px;">
-          <a href="" class="boton_2" id="refreshButton">REFRESH</a>
-        
-        </div>
-        <script>
-          document.getElementById('refreshButton').addEventListener('click', function() {
-              // Obtiene el contenedor del iframe
-              var container = document.getElementById('player-container');
-  
-              // Obtiene el elemento del iFrame por su ID
-              var iframe = document.getElementById('player');
-  
-              // Clona el iframe
-              var newIframe = iframe.cloneNode(true);
-  
-              // Reemplaza el iframe existente con el nuevo clon
-              container.replaceChild(newIframe, iframe);
-          });
-      </script>
+    <div id="player" class="ViostreamIframe"></div>
 
     <script>
         function getParameterByName(name) {
