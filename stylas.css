@@ -85,7 +85,9 @@
   
     }
 
-
+.CHI > A::before{
+    background-image: url(https://www.sofascore.com/static/images/flags/cl.png);
+}
     .GRE > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/gr.png);
 
