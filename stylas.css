@@ -113,8 +113,14 @@
     }
 
 
-    
-    
+    .CHA > a:before {
+        background-image: url(https://megadeportestv2.com/flags/champions.png?v);
+    }
+
+    .AFC > a:before {
+        background-image: url(https://megadeportestv2.com/flags/afc_update.png?v);
+    }
+
     .URU > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/uy.png);
     }
