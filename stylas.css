@@ -177,7 +177,13 @@
         background-image: url(https://futbolgratisenhd.com/flags/lcc1.png);
     }
 
+    .UE > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/uelogo.png);}
     
+
+        .UCL > a:before {
+            background-image: url(https://futbolgratisenhd.com/flags/conferecen.png);}
+
     .MFP > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/MFP.png);
     }
