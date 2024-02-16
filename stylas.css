@@ -173,6 +173,11 @@
         background-image: url(//futbolgratisenhd.com/flags/nationsleague.png);
     }
 
+    .CAF > a:before {
+        background-image: url(https://dodousd.github.io/stylas/CAF.png);
+    }
+
+    
     .LCC > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/lcc1.png);
     }
