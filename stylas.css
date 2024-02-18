@@ -209,7 +209,10 @@
 
     }
 
-    
+    .BOL > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/bo.png);
+
+    }
 
     .COPADAVIS > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/davis.png);
