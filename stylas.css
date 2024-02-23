@@ -189,7 +189,7 @@
     .MLB > a:before {
         background-image: url(https://dodousd.github.io/stylas/MLB.png);
     }
-    
+
     .LCC > a:before {
         background-image: url(//futbolgratisenhd.com/flags/concacafligad.png);
     }
@@ -239,6 +239,9 @@
         background-image: url(https://futbolgratisenhd.com/flags/endesa.png);
     }
     
+    .ECUA > a:before {
+        background-image: url(https://dodousd.github.io/stylas/ECUA.png);
+    }
 
     .SERIECARIBE > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/seriecaribe.png);
