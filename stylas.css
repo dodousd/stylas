@@ -242,6 +242,22 @@
     .ECUA > a:before {
         background-image: url(https://dodousd.github.io/stylas/ECUA.png);
     }
+    .POL> a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/pl.png);
+    }
+
+    
+    .RUM> a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/ro.png);
+    }
+
+    .AU > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/au.png);
+    }
+
+    .EUROBASKET > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/eurobasket1.png);
+    }
 
     .SERIECARIBE > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/seriecaribe.png);
