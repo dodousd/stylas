@@ -211,9 +211,7 @@
     }
 
 
-    .CONCACAFCHA > a:before {
-        background-image: url(https://futbolgratisenhd.com/flags/concacafligad.png);
-    }
+
 
 
 .CICLISMO > a:before {
@@ -230,7 +228,10 @@
         background-image: url(https://dodousd.github.io/stylas/CONCACAFCUP.png);
 
     } 
+    .CONCACAFCHA > a:before {
+        background-image: url(https://dodousd.github.io/stylas/CONCACAFCHA.png);
 
+    } 
     .COPADAVIS > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/davis.png);
     }
