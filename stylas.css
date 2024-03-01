@@ -173,8 +173,13 @@
         background-image: url(https://dodousd.github.io/stylas/RECUPSUD.png);
     }
 
+    .F3 > a:before {
+        background-image: url(https://dodousd.github.io/stylas/F3.png);
+    }
 
-
+    .F2 > a:before {
+        background-image: url(https://dodousd.github.io/stylas/F2.png);
+    }
 
     .F1 > a:before {
         background-image: url(https://dodousd.github.io/stylas/F1.png);
