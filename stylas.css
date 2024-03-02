@@ -187,6 +187,10 @@
     .UEFA_NATIONS > a:before {
         background-image: url(//futbolgratisenhd.com/flags/nationsleague.png);
     }
+    .RU > a:before {
+        background-image: url(https://www.sofascore.com/static/images/flags/ru.png);
+    }
+    
 
     .CAF > a:before {
         background-image: url(https://dodousd.github.io/stylas/CAF.png);
