@@ -157,7 +157,9 @@
         background-image: url(https://futbolgratisenhd.com/flags/seriecaribe.png);
     }
 
-    
+    .SUD > a:before {
+        background-image: url(https://dodousd.github.io/stylas/SUD.png);
+    }
     .LIB > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/lib.png);
     }
