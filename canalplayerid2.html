@@ -605,8 +605,7 @@
 
         };
 
-
-        var id = getParameterByName('id');
+var id = getParameterByName('id');
 var config = ConfiguracionCanales[id];
 
 if (config) {
@@ -634,9 +633,9 @@ if (config) {
         width: "100%", 
         height: "100%", 
         stretching: "exactfit",
-        aspectratio: "",
-        cast: {}
-              
+        aspectratio: "16:9",
+        cast: {}, 
+                sharing: {}
         });
         } else if (id === "ESPN_FLOW") {
             document.getElementById("player").innerHTML = '<iframe src="/flow.php?url=LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9FU1BOMkhEL1NBX0xpdmVfZGFzaF9lbmMvRVNQTjJIRC5tcGQ=&k1=ZTg4NGI3MTFhYjExMWJlYjhhN2JhMWU3YmNiZGM5YmY=&k2=Y2I4OWVlMzk2MTU5OWUzZTY0OGE1YWFkNjA4OTVmMzQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
@@ -748,8 +747,5 @@ if (config) {
             document.getElementById("player").innerHTML = '<iframe src="https://alwaysdomain01.online/bein5max.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
         }
     </script>
-
-<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('ossmightyenar.net',5895639,document.createElement('script'))</script>
-
 </body>
 </html>
