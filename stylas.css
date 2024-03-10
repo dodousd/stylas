@@ -175,6 +175,10 @@
         background-image: url(https://dodousd.github.io/stylas/RECUPSUD.png);
     }
 
+    .MOTOGP > a:before {
+        background-image: url(https://dodousd.github.io/stylas/motogp.webp);
+    }
+
     .F3 > a:before {
         background-image: url(https://dodousd.github.io/stylas/F3.png);
     }
