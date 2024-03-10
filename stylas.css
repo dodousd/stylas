@@ -171,6 +171,10 @@
         background-image: url(https://futbolgratisenhd.com/flags/uyl.png);
     }
 
+    .OSCARS > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/oscars.png);
+    }
+
     .RECOPA > a:before {
         background-image: url(https://dodousd.github.io/stylas/RECUPSUD.png);
     }
