@@ -160,6 +160,20 @@
     .SUD > a:before {
         background-image: url(https://dodousd.github.io/stylas/SUD.png);
     }
+
+    .ELIAFC > a:before {
+        background-image: url(https://dodousd.github.io/stylas/ELIAFC.png);
+    }
+
+    .EURO > a:before {
+        background-image: url(https://dodousd.github.io/stylas/EURO.png);
+    }
+
+    .CONCACAFNAT > a:before {
+        background-image: url(https://dodousd.github.io/stylas/concacafnat.png);
+    }
+
+
     .LIB > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/lib.png);
     }
