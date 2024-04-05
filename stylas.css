@@ -269,6 +269,13 @@
 
     }
 
+
+    .EUROFEM > a:before {
+        background-image: url(https://dodousd.github.io/stylas/eurofem.png);
+
+    } 
+
+
     .CONCACAFCUP > a:before {
         background-image: url(https://dodousd.github.io/stylas/CONCACAFCUP.png);
 
