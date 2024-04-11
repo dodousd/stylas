@@ -244,12 +244,13 @@
     }
 
     .UE > a:before {
-        background-image: url(https://futbolgratisenhd.com/flags/uelogo.png);}
-    
+        background-image: url(https://dodousd.github.io/stylas/UE.png);}
+        .UEC > a:before {
+            background-image: url(https://futbolgratisenhd.com/flags/UEC.png);}
 
         .UCL > a:before {
-            background-image: url(https://futbolgratisenhd.com/flags/conferecen.png);}
-
+            background-image: url(https://futbolgratisenhd.com/flags/UEC.png);}
+        
     .MFP > a:before {
         background-image: url(https://futbolgratisenhd.com/flags/MFP.png);
     }
