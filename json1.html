@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de HLS</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <video id="videoPlayer" controls autoplay></video>
+
+    <script>
+        if (Hls.isSupported()) {
+            var video = document.getElementById('videoPlayer');
+            var hls = new Hls();
+            hls.loadSource('https://video-weaver.scl01.hls.ttvnw.net/v1/playlist/CrkFN7qrq7Iu-yoQvNMQu18Bpthn3YG7XeB-okLuab0GughMv9rbXCRnDSGVE8PA4V_4BA-nQlVvRhkOvSzp7c-lqOS1mHN-3hCz9iOGSaCp1-mrG9kDKnbvdIRGkARBLZtuVlkitwuDmKoWEIEkhmdpa9rx_XVddkB6kkJNeF2lrA7xYmqcz_iyF2GyfXiazT0eJhyELyKSG7OWOaHbpj_DgPRFotmfZua3xEGskj5agr0EciVB6r_KSMjpp2lsagTlJeI-WD3NruhSIgkKlzaVnreXly6K3lbQukttfXBuDf0S6F_3odAS324oV8G_bJg4SWnPa-mxWebgEH-heJyHukpaiMsMH79Luptxp3pgJDzPS7TT8vr2zLQE95-Vr3qGMPCdq_IUJDBgsC2LCoznuHb7mho6h0BE8Flxy0l-7banKCQ_pUyPDh9GRRakQ49Bip8GOLVp0FJv1SmRBcnL8YQbHdPNY8WhHyiuYGTf19m24Z5ZLGKNeK8r9QFjb43X4Gz2-Uw1ZDUafaM7KuJgsKtqXT2AsxVucGaKa7xLOZmDj9sPo_ky4NXVJM40drXsMsfSn3yWVoIusY1u6YrcUuh8WXJwrgswVhVeBa7dAeEphlcEwNe-uvpfJxtgas2iMUw2y7_CLllOn6d81GpGgWWoNn474c9g7ix63CsClqKsHcKBsEMGSUM0tit5UpiRMJq-g79ascCuGp06MohT5qPHqa6SfTK4-KNkW86xgvxjUfPWTHVH0dK8zwaCurGGSK52_2lTim4ibNlpzOTSroV4WjI300uZZWyHlU9-14pgpgwutWGaOTDoloAVXdDCrqEMWkuh9cnKFUlGIweKgkSmTIydA32jOaHMSL6IzC963MqNaiEy1oTbDBHecNAxc8YDdm09r7BsoPmlACVHc3VNsQLjA9UhdxoMEGvRBEmlUKUGwQqrIAEqCXVzLWVhc3QtMjCfCQ.m3u8');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
