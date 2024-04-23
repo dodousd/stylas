@@ -1,56 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-<meta charset="UTF-8">
+
+</head>
 <meta name="robots" content="noindex">
+<meta charset="UTF-8">
 <title>Player</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
 <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo'; </script>
-</head>
 <body style="padding: 0px; margin:0px;">
 <div id="player"></div>
 <script type="text/javascript">
 $(document).ready(function() {
   const urlParams = new URLSearchParams(window.location.search);
+  const eventId = urlParams.get('id');
   const eventImg = urlParams.get('img');
 
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://anceprov.best/json/2ffywv8jesw0mhqvzfhxf2k2w21u1yr26lewhfw6.json?' + Math.random().toString(36).substring(7), true);
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      var data = JSON.parse(xhr.responseText);
-      var playerInstance = jwplayer("player");
+  function setupPlayer() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://dodousd.github.io/stylas/d.json?' + Math.random().toString(36).substring(7), true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        var playerInstance = jwplayer("player");
 
-      playerInstance.setup({
-        playlist : [{
-          title : "Mega Deportes TV | Reproductor",
-          description : "megadeportestv2.com",
-          image : eventImg, 
-          sources : [{
-            default : false,
-            file : data.hls, 
-            label : "0",
-            type : "hls"
+        playerInstance.setup({
+          playlist : [{
+            title : "Mega Deportes TV | Reproductor",
+            description : "megadeportestv2.com",
+            image : eventImg, 
+            sources : [{
+              default : false,
+              file : atob(data.hls), 
+              label : "0",
+              type : "hls"
+            }],
           }],
-        }],
-        width : "100%",
-        height : "100%",
-        aspectratio : "16:9",
-        autostart : false,
-        cast:{}
-      });
-      
-      playerInstance.on('error', function(event) {
-        if (event.code === 232403) {
-          location.reload();
-        }
-      });
-    }
-  };
-  xhr.send();
+          width : "100%",
+          height : "100%",
+          aspectratio : "16:9",
+          autostart : false,
+          cast:{}
+        });
+        
+        playerInstance.on('error', function(event) {
+          if (event.code === 232403) {
+            location.reload();
+          }
+        });
+      }
+    };
+    xhr.send();
+  }
+
+  setupPlayer(); 
 
 });
 </script>
-</body>
 </html>
