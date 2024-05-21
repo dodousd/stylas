@@ -85,6 +85,11 @@
   
     }
 
+    .VNL > a:before {
+        background-image: url(https://dodousd.github.io/stylas/vnl.png);
+  
+    }
+
 .CH > A::before{
     background-image: url(https://www.sofascore.com/static/images/flags/cl.png);
 }
@@ -124,6 +129,8 @@
     .AFC > a:before {
         background-image: url(https://megadeportestv2.com/flags/afc_update.png?v);
     }
+
+ 
 
     .URU > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/uy.png);
@@ -270,9 +277,15 @@
 
 
 .CICLISMO > a:before {
-        background-image: url(https://futbolgratisenhd.com/flags/ciclismo.png);
+        background-image: url(https://futbolgratisenhd.com/flags/cicli.png);
 
     }
+
+    .VNL> a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/vnl.png);
+
+    }
+
 
     .BOL > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/bo.png);
