@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex" />
+    <title>Shaka Player Example with Debugging</title>
+    <style> 
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #video {
+            width: 100%;
+            height: 90%;
+        }
+        #quality-selector {
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #quality-selector select {
+            font-size: 16px;
+            padding: 5px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.2.0/shaka-player.compiled.js"></script>
+</head>
+<body>
+    <video id="video" controls autoplay></video>
+    <div id="quality-selector">
+        <label for="qualities">Select Quality: </label>
+        <select id="qualities"></select>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('video');
+            const player = new shaka.Player(video);
+            const qualitySelector = document.getElementById('qualities');
+
+            // Error handling
+            player.addEventListener('error', onError);
+
+            function onError(event) {
+                console.error('Shaka Player Error', event.detail);
+            }
+
+            async function init() {
+                try {
+                    const manifestUri = 'https://edge6-hr.cvattv.com.ar/live/c7eds/Fox_Sports_Premiun_HD/SA_Live_dash_enc_2A/Fox_Sports_Premiun_HD.mpd';
+                    
+                    // Configure ClearKey DRM
+                    player.configure({
+                        drm: {
+                            clearKeys: {
+                                '4c230dbc7f6a4bfa6ad0aa73ff792374': '4186a7c2a15f590a9399886feaec4257'
+                            }
+                        }
+                    });
+
+                    // Load the manifest
+                    await player.load(manifestUri);
+                    console.log('The video has now been loaded!');
+
+                    // Populate quality options
+                    const tracks = player.getVariantTracks();
+                    tracks.forEach((track) => {
+                        const option = document.createElement('option');
+                        option.value = track.id;
+                        option.textContent = `${track.height}p (${(track.bandwidth / 1000).toFixed(0)} kbps)`;
+                        qualitySelector.appendChild(option);
+                    });
+
+                    // Listen for changes in quality selection
+                    qualitySelector.addEventListener('change', () => {
+                        const selectedId = parseInt(qualitySelector.value);
+                        player.selectVariantTrack(tracks.find(track => track.id === selectedId), true);
+                    });
+
+                } catch (e) {
+                    onError({detail: e});
+                }
+            }
+
+            init();
+        });
+    </script>
+</body>
+</html>
