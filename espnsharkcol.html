@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex" />
+    <title>Shaka Player Example</title>
+    <style> 
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #video {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.2.0/shaka-player.compiled.js"></script>
+</head>
+<body>
+    <video id="video" controls autoplay></video>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('video');
+            const player = new shaka.Player(video);
+
+            // Error handling
+            player.addEventListener('error', onError);
+
+            function onError(event) {
+                console.error('Error code', event.detail.code, 'object', event.detail);
+            }
+
+            async function init() {
+                try {
+                    const manifestUri = 'https://1279247418.rsc.cdn77.org/bpk-tv/QFENPU/dash/manifest.mpd';
+                    
+                    // Configure ClearKey DRM
+                    player.configure({
+                        drm: {
+                            clearKeys: {
+                                'af076d62dfe64a82a1f205b16c2f5ff7': '8d71de48cafde022465af47f7639b241'
+                           
+                            }
+                        }
+                    });
+
+                    // Load the manifest
+                    await player.load(manifestUri);
+                    console.log('The video has now been loaded!');
+                } catch (e) {
+                    onError(e);
+                }
+            }
+
+            init();
+        });
+    </script>
+</body>
+</html>
