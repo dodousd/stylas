@@ -84,6 +84,10 @@
         background-image: url(https://dodousd.github.io/stylas/africa.png);
   
     }
+    .EUROCOPA > a:before {
+        background-image: url(https://dodousd.github.io/stylas/EUROCOPA.png);
+  
+    }
 
     .VNL > a:before {
         background-image: url(https://dodousd.github.io/stylas/vnl.png);
