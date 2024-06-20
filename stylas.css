@@ -192,6 +192,10 @@
         background-image: url(https://dodousd.github.io/stylas/EUROCOPA.png);
     }
 
+    .AMERICA > a:before {
+        background-image: url(https://dodousd.github.io/stylas/COPAAMERICA.png);
+    }
+
     .CONCACAFNAT > a:before {
         background-image: url(https://dodousd.github.io/stylas/concacafnat.png);
     }
