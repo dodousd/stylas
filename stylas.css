@@ -109,11 +109,8 @@
     background-image: url(https://www.sofascore.com/static/images/flags/cl.png);
 }
 
-.PARIS > A::before{
-    background-image: url(https://futbolgratisenhd.com/flags/olimpicos.png);
-}
 .OLIMPICOS > A::before{
-    background-image: url(https://futbolgratisenhd.com/flags/olimpicos2.png);
+    background-image: url(https://futbolgratisenhd.com/flags/olimpicos.png);
 }
 
     .GRE > a:before {
@@ -269,6 +266,9 @@
     }
 
     
+    .LEAGUESCUP > a:before {
+        background-image: url(https://futbolgratisenhd.com/flags/leaguescup.png);
+    }
 
     .MLB > a:before {
         background-image: url(https://dodousd.github.io/stylas/MLB.png);
