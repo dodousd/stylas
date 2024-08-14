@@ -113,6 +113,9 @@
     background-image: url(https://futbolgratisenhd.com/flags/olimpicos2.png);
 }
 
+.SUPERCOPA > A::before{
+    background-image: url(https://futbolgratisenhd.com/flags/uefasupercopa.png);
+}
     .GRE > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/gr.png);
 
