@@ -344,6 +344,19 @@
     .ECUA > a:before {
         background-image: url(https://dodousd.github.io/stylas/ECUA.png);
     }
+
+    .AFRICA_ELI > a:before {
+        background-image: url(https://dodousd.github.io/stylas/AFRICA_ELI.png);
+    }
+    .AFC_ELI> a:before {
+        background-image: url(https://dodousd.github.io/stylas/AFC_ELI.png);
+    }
+
+    .ELIMINATORIAS_CONMEBOL > a:before {
+        background-image: url(https://dodousd.github.io/stylas/ELIMINATORIAS_CONMEBOL.png);
+    }
+
+
     .POL> a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/pl.png);
     }
