@@ -1,0 +1,80 @@
+
+
+<meta charset="UTF-8">
+<meta content="max-age=200" http-equiv="Cache-Control">
+<meta content="noindex,nofollow" name="robots">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    body {
+
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+
+<head><!-- Powered by Hooligan Media -->
+
+
+</head>
+
+<script type="text/javascript">
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+     id = getParameterByName('p');
+    if(getParameterByName('embed')){
+       embed = getParameterByName('embed');
+    }else{
+       if(getParameterByName('r')){
+           embed = getParameterByName('r');
+        }else{
+           embed = false;
+    }  
+    }
+
+ </script> 
+    <div class="video-container">     
+        <script type="text/javascript">
+            if (embed) {document.write('<iframe class="embed-responsive-item" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen src="'+embed+'" scrolling="yes" frameBorder="0" title="Reproductor 1" alt="Reproducir"  width="100%" height="100%" allowfullscreen></iframe>');}else{document.write('<img class="embed-responsive-item" src="beloo.PNG" width="100%">')}
+                </script>
+        <script>
+    window.onload = function() {
+        var images = document.getElementsByTagName('img');
+          var links = document.getElementsByTagName('a');
+        for (var i = 0; i < images.length; i++) {
+            images[i].onclick = function() {
+                AndroidInterface.onImageClick();
+            };
+        }
+
+       for (var i = 0; i < links.length; i++) {
+            links[i].onclick = function() {
+                AndroidInterface.onLinkClick();
+            };
+        }
+        
+
+
+          
+ 
+    };
+</script>
+        <script>
+    // Llama al método en el WebViewJavaScriptInterface para cargar el anuncio nativo
+    AndroidInterface.cargarAnuncioNativo();
+</script>
+
+        <script>
+  // Función para manejar clics en cualquier lugar del documento
+  function manejarClicEnDocumento() {
+      // Llamar a la función de la interfaz JavaScript
+      Android.manejarClic();
+  }
+
+  // Asignar la función al evento de clic en el documento
+  document.addEventListener('click', manejarClicEnDocumento);
+</script>
+</div>
