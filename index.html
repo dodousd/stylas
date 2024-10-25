@@ -1,80 +1,137 @@
 
 
-<meta charset="UTF-8">
-<meta content="max-age=200" http-equiv="Cache-Control">
-<meta content="noindex,nofollow" name="robots">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
-    body {
-
-        margin: 0px;
-        padding: 0px;
-    }
+<html lang="es"> 
+<head><style>.jw-rightclick {
+    display: none !important;
+}
 </style>
+<meta name="robots" content="noindex" /> 
+<script src="//cdn.jsdelivr.net/npm/console-ban@5.0.0/dist/console-ban.min.js"></script>
+<script>ConsoleBan.init({ redirect: '../../' }); </script>
+<script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script> 
+<script src="//cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script> 
+<script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script> 
+<script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script> 
+<script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script> 
+<script src="//cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script> 
+<script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script> 
+<script src="//cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
 
-<head><!-- Powered by Hooligan Media -->
-
-
-</head>
-
-<script type="text/javascript">
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+<style>  
+.player-poster[data-poster] { 
+  background-size: cover; 
+} 
+body{ 
+  margin:0; 
+  padding:0; 
+} 
+</style> 
+</head> 
+<body>
+<div id="player"></div> 
+<script> 
+function getUrlParameter(name) {
+    var result = null;
+    var regex = new RegExp('[?&]' + name + '=([^&#]*)', 'i');
+    var match = window.location.search.match(regex);
+    if (match) {
+        result = decodeURIComponent(match[1]);
     }
-     id = getParameterByName('p');
-    if(getParameterByName('embed')){
-       embed = getParameterByName('embed');
-    }else{
-       if(getParameterByName('r')){
-           embed = getParameterByName('r');
-        }else{
-           embed = false;
-    }  
-    }
+    return result;
+}
 
- </script> 
-    <div class="video-container">     
-        <script type="text/javascript">
-            if (embed) {document.write('<iframe class="embed-responsive-item" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen src="'+embed+'" scrolling="yes" frameBorder="0" title="Reproductor 1" alt="Reproducir"  width="100%" height="100%" allowfullscreen></iframe>');}else{document.write('<img class="embed-responsive-item" src="beloo.PNG" width="100%">')}
-                </script>
-        <script>
-    window.onload = function() {
-        var images = document.getElementsByTagName('img');
-          var links = document.getElementsByTagName('a');
-        for (var i = 0; i < images.length; i++) {
-            images[i].onclick = function() {
-                AndroidInterface.onImageClick();
-            };
-        }
+var id = getUrlParameter('id');
 
-       for (var i = 0; i < links.length; i++) {
-            links[i].onclick = function() {
-                AndroidInterface.onLinkClick();
-            };
-        }
-        
+var source = '';
+var clearKeys = {};
 
-
-          
- 
+if (id === 'HISTORIA') {
+    source = 'https://tvup01.edge.milloh-cs.com/historia/historia.mpd';
+    clearKeys = {
+        '4905a9d7757b5c1e9e54ac4114acb192': 'fc4803368d2fed4e4f0eba14f7e5fe05',
+        '490b528a29d85807b81e5a40adac38c1': 'e947c65e0ec3f5bcc020f41a552b9993',
+        'e7007b60625e54bf9794b2bcdcaac24e': 'f242a6fbfaa73dfbdec97ca37ccafe09'
     };
-</script>
-        <script>
-    // Llama al método en el WebViewJavaScriptInterface para cargar el anuncio nativo
-    AndroidInterface.cargarAnuncioNativo();
-</script>
+} else if (id === 'LA1') {
+    source = 'https://tvup01.edge.milloh-cs.com/la1-neutral/la1-neutral.mpd';
+    clearKeys = {
+        '562f81a1d0c3508a92272bb2d1a1ff68': '689317e107f46e168c72a495203eefec',
+        '282ada04f991565d9eea39e675d843ef': 'fdeb35eaa846c3b4ecacb86547045c25',
+        'e080cf6f71365721a531637e02231a7a': '461cf77fac8985df81510ab8dbf5f81e'
+    };
+} else if (id === 'LA2') {
+    source = 'https://tvup01.edge.milloh-cs.com/la2l/la2l.mpd';
+    clearKeys = {
+        '2a65a80955e550039651caae1b32ee9a': '91532fd3f963cfca61d2753af1b84136',
+        '3a217613ab4c5d8399434d679bb43ca5': 'd1d41a48e85ed378cfc7de72f19edd1f',
+        '6293f906b9f65e7783125513d313a3f9': 'cbdd50a59a9eea3ecd1b3b95c56940c0'
+    };
+}  else if (id === 'ANTENA3') {
+    source = 'https://tvup01.edge.milloh-cs.com/antena3hd/antena3hd.mpd';
+    clearKeys = {
+        '173bcb78d33a5ae7ba7357ad94723f28': '1e69f953c8974cacf85e9c29c6a0f2cc',
+        'b5aefe37a38c5642876e992ab484e1fa': '9740dbf62ae7811d17d87d3a8ef0c442',
+        'c648943f6c405d9189a1b4bc518838b0': '6b495ac32285d600d3334dd9bed52d59'
+    };
+}  else if (id === 'CUATRO') {
+    source = 'https://tvup01.edge.milloh-cs.com/cuatro/cuatro.mpd';
+    clearKeys = {
+        '78fecad5e0145b71916e132f1bc293b2': '24f2ca53927a5134fb702e6121f1aea3',
+        '8708aa66d18858fbb0a9876bf0cc7878': '9148f9a909f41429e7f3070913e8fa8d',
+        '38483b5bc206535c94dbd29d73a2a90b': 'c7024c92716b0a7ea853a0881ce01315'
+    };
+}  else if (id === 'TELECINCO') {
+    source = 'https://tvup01.edge.milloh-cs.com/telecincohd/telecincohd.mpd';
+    clearKeys = {
+        'def5769eed6152d2b32aa1c75a624764': 'ed06df900e0b84549a834c49997dc8ad',
+        '7ca93b77733454d3830c60996ad8929b': '8ab9809fc799015a41c39b8b9d6ab9a5',
+        'faebbb9b817459d2965625708666a114': '9a1aa94adb0b15b523836c6f41843726'
+    };
+}  else if (id === 'LASEXTA') {
+    source = 'https://tvup01.edge.milloh-cs.com/lasexta/lasexta.mpd';
+    clearKeys = {
+        '8a56a25be1ed5c6a946edc8493d42d1d': '0332ad7b0a05c7ff5854cfb0cf8737fe',
+        '1179fa165d8354a58a02377eb9e9ad52': '05d8d60b479a1bbf2b9b21765dfe63e6',
+        '3a192ebf13e05c528459dc66031e2da2': '8179c86be8e1f3ad9053aa8ccd977408'
+    };
+}  else {
+    alert('No se encontró un ID válido.');
+}
 
-        <script>
-  // Función para manejar clics en cualquier lugar del documento
-  function manejarClicEnDocumento() {
-      // Llamar a la función de la interfaz JavaScript
-      Android.manejarClic();
-  }
-
-  // Asignar la función al evento de clic en el documento
-  document.addEventListener('click', manejarClicEnDocumento);
+var player = new Clappr.Player({ 
+        source: source, 
+        mimeType: 'application/dash+xml', 
+        height: '100%', 
+        width: '100%', 
+        poster: '',
+        plugins: [
+            LevelSelector, 
+            DashShakaPlayback, 
+            ClapprPip.PipButton, 
+            ClapprPip.PipPlugin, 
+            Clappr.MediaControl,
+            Clappr.Poster
+        ], 
+        events: {
+            onReady: function() {
+                var plugin = this.getPlugin('click_to_pause'); 
+                plugin && plugin.disable();
+            },
+        }, 
+        chromecast: { 
+            appId: '#', 
+            contentType: 'video/mp4', 
+        }, 
+        shakaConfiguration: { 
+            drm: { 
+            clearKeys: clearKeys
+            }, 
+            preferredAudioLanguage: 'pt-BR', 
+        }, 
+        shakaOnBeforeLoad: function (shaka_player) {}, 
+        parentId: '#player' 
+    }); 
 </script>
-</div>
+</body>
+</html>
