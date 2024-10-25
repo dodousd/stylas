@@ -1,80 +1,671 @@
 
 
-<meta charset="UTF-8">
-<meta content="max-age=200" http-equiv="Cache-Control">
-<meta content="noindex,nofollow" name="robots">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
-    body {
 
-        margin: 0px;
-        padding: 0px;
-    }
+<!DOCTYPE html>
+<html><style>.jw-rightclick {
+    display: none !important;
+}
 </style>
+<head>
+<script src="//cdn.jsdelivr.net/npm/console-ban@5.0.0/dist/console-ban.min.js"></script>
 
-<head><!-- Powered by Hooligan Media -->
-
-
+    <title>Video Player</title>
+    <meta content="noindex, nofollow, noarchive" name="robots"/>
+    <meta name="referrer" content="no-referrer" />
+  <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+    <script>jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";</script>
+    <style>
+        body { margin: 0px; }
+        .ViostreamIframe { overflow: hidden; padding-top: 56.25%; position: relative; }
+        .ViostreamIframe iframe { border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+    </style>
 </head>
+<body>
+    <div id="player" class="ViostreamIframe"></div>
 
-<script type="text/javascript">
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
-     id = getParameterByName('p');
-    if(getParameterByName('embed')){
-       embed = getParameterByName('embed');
-    }else{
-       if(getParameterByName('r')){
-           embed = getParameterByName('r');
-        }else{
-           embed = false;
-    }  
-    }
-
- </script> 
-    <div class="video-container">     
-        <script type="text/javascript">
-            if (embed) {document.write('<iframe class="embed-responsive-item" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen src="'+embed+'" scrolling="yes" frameBorder="0" title="Reproductor 1" alt="Reproducir"  width="100%" height="100%" allowfullscreen></iframe>');}else{document.write('<img class="embed-responsive-item" src="beloo.PNG" width="100%">')}
-                </script>
-        <script>
-    window.onload = function() {
-        var images = document.getElementsByTagName('img');
-          var links = document.getElementsByTagName('a');
-        for (var i = 0; i < images.length; i++) {
-            images[i].onclick = function() {
-                AndroidInterface.onImageClick();
-            };
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-       for (var i = 0; i < links.length; i++) {
-            links[i].onclick = function() {
-                AndroidInterface.onLinkClick();
-            };
+        var ConfiguracionCanales = {
+            
+
+            "USANETWORK": {
+                url: "https://cfrt.stream.peacocktv.com/Content/CMAF_OL1-CTR-4s/Live/channel(usa-west)/master.mpd",
+                k1: "252a671825ba31ec8433f978c32ccf6d",
+                k2: "ee560759ecc8d2274df2e63fcef56915"
+            },
+            
+            "UNIVERSO": {
+                url: "https://fsly.stream.peacocktv.com/Content/CMAF_OL1-CTR-4s/Live/channel(universo-east)/master.mpd",
+                k1: "232d71bb013d39ffb92ee8c576fb7e8e",
+                k2: "087408a48be8d57046c3868b37ea90ba"
+            },
+            
+            "NBC_USA": {
+                url: "https://fsly.stream.peacocktv.com/Content/CMAF_OL1-CTR-4s/Live/channel(knbc)/master.mpd",
+                k1: "0045a118e231f1326bcdb45350b1ceaa",
+                k2: "8c13afbfa54ea37a368b8b859021f6e3"
+            },
+            
+            "SSC1": {
+                url: "https://ssc1-ak.akamaized.net/out/v1/c696e4819b55414388a1a487e8a45ca1/index.mpd",
+                k1: "d84c325f36814f39bbe59080272b10c3",
+                k2: "550727de4c96ef1ecff874905493580f"
+            },
+            "SSC2": {
+                url: "https://ssc2-ak.akamaized.net/out/v1/a16db2ec338a445a82d9c541cc9293f9/index.mpd",
+                k1: "8BCFC55359E24BD7AD1C5560A96DDD3C",
+                k2: "b5dcf721ab522af92a9d3bf0bd55b596"
+            },
+            "SSC3": {
+                url: "https://ssc3-ak.akamaized.net/out/v1/42e86125555242aaa2a12056832e7814/index.mpd",
+                k1: "7de5dd08ad8041d586c2f16ccc9490a1",
+                k2: "5e1503f3398b34f5099933fedab847ef"
+            },
+            "SSC4": {
+                url: "https://ssc4-ak.akamaized.net/out/v1/5267ea5772874b0db24559d643eaad93/index.mpd",
+                k1: "5c672f6b85a94638872d0214f7806ed4",
+                k2: "bf8756fbb866ee2d5c701c2289dd8de3"
+            },
+            "SSC5": {
+                url: "https://ssc5-ak.akamaized.net/out/v1/99289eac5a7b4319905da595afbd792b/index.mpd",
+                k1: "c88b512b17ab4f6cb09eb0ff4a1056ed",
+                k2: "adc08ee1c20a734972a55c9aebbd1888"
+            },
+            "SSC_EXTRA1": {
+                url: "https://ssc-extra1-ak.akamaized.net/out/v1/647c58693f1d46af92bd7e69f17912cb/index.mpd",
+                k1: "ecbc9e6fe6b145efb6658fb5cf7427f8",
+                k2: "03c17e28911f71221acbc0b11f900401"
+            },
+            "SSC_EXTRA2": {
+                url: "https://ssc-extra2-ak.akamaized.net/out/v1/8b70de2b70d447ba8a7450ba90926a2d/index.mpd",
+                k1: "4d89249bd4ca4ebc9e70443265f9507d",
+                k2: "cf074ffd2646c9c2f8513b47fa57bc30"
+            },
+            "SSC_EXTRA3": {
+                url: "https://ssc-extra3-ak.akamaized.net/out/v1/8f1c6c3f05ef4284a64b342891bd85ae/index.mpd",
+                k1: "98cfd6fd4812497fb24dc75f7545f2ee",
+                k2: "d3006ee69e77b25939728ebf30d3180a"
+            },
+            "SSC_NEWS": {
+                url: "https://ssc-news-live-ak.akamaized.net/out/v1/ef466f43623c4bbaa3f905b566ec35ea/index.mpd",
+                k1: "3d04975236a44f62857d181597705ee6",
+                k2: "362133e9cb13189ad4fe095ced216f60"
+            },
+
+            "TV2_SPORT_PREMIUM_NO": {
+                url: "https://ch11-hls-live.akamaized.net/out/u/433127.mpd",
+                k1: "d12e4c9dc52f4cbab7ac9b2278317e47",
+                k2: "a7987e5b6ec42db68a25486e108ca9f2"
+            },
+            
+            "LALIGATV_UK": {
+                url: "https://ottb.live.cf.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/fpndxmzw6o/out/v1/70a50b1bda944628b8e7e66ab4069419/cenc.mpd",
+                k1: "fc12a94c41e0885dbea8a8d94f0a277d",
+                k2: "fc045df077e7669666b1b230e9aa3901"
+            },
+            
+            "DAZNLALIGA": {
+                url: "https://live.ll.ww.aiv-cdn.net/OTTB/dub-nitro/live/clients/dash/enc/wjgklbtvhh/out/v1/659736a1e24c40e4865a80ffd75e7de7/cenc.mpd",
+                k1: "43d1c3b25207ff38b22ccfe17d302367",
+                k2: "7b1f85f6e81059473b114c16a25c829a"
+            },
+            "DAZN_1_ES": {
+                url: "https://ottb.live.cf.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/bmnelo5c7a/out/v1/3ce2cdc4589f46189322bd3717c77957/cenc.mpd",
+                k1: "44dd9cd370b08a868ead115fe84ecfde",
+                k2: "bff19ab0a51cf14e848389b152913fd0"
+            },
+            "DAZN_2_ES": {
+                url: "https://ottb.live.cf.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/xnk4m9bnxt/out/v1/4ced7b7329a54652b9bb0521ed38bd4d/cenc.mpd",
+                k1: "0eab5a3f3e3b4ba5d42d40ca30d17571",
+                k2: "f3f061ded9b70e8160590d5802ecda6d"
+            },
+            
+            "DAZN_3_ES": {
+                url: "https://live.ll.ww.aiv-cdn.net/OTTB/dub-nitro/live/clients/dash/enc/zy1ee5sshp/out/v1/bdcffa69fa3b4f3bb3569c9c73ee1c01/cenc.mpd",
+                k1: "bad8efff688c0dbb3711e4a7114c22a3",
+                k2: "6ba800673b20776c0c850130d45e1920"
+            },
+            
+            "DAZN_4_ES": {
+                url: "https://live.ll.ww.aiv-cdn.net/OTTB/dub-nitro/live/clients/dash/enc/up7qpwch9b/out/v1/a6d5d1a1287b4893b859c2d6ccf2c65d/cenc.mpd",
+                k1: "d27104d427e4f87e75b19395a9f8796b",
+                k2: "723593c70e2d4c4862754398e80168f8"
+            },
+            
+           "TNT_1_UK": {
+                url: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd",
+                k1: "ae26845bd33038a9c0774a0981007294",
+                k2: "63ac662dde310cfb4cc6f9b43b34196d"
+            },
+            "TNT_2_UK": {
+                url: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd",
+                k1: "6d1708b185c6c4d7b37600520c7cc93c",
+                k2: "1aace05f58d8edef9697fd52cb09f441"
+            },
+            "TNT_3_UK": {
+                url: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/lsdasbvglv/out/v1/bb548a3626cd4708afbb94a58d71dce9/cenc.mpd",
+                k1: "4e993aa8c1f295f8b94e8e9e6f6d0bfe",
+                k2: "86a1ed6e96caab8eb1009fe530d2cf4f"
+            },
+            "TNT_4_UK": {
+                url: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/i2pcjr4pe5/out/v1/912e9db56d75403b8a9ac0a719110f36/cenc.mpd",
+                k1: "e31a5a81caff5d07ea2411a571fc2e59",
+                k2: "96c5ef69479732ae734f962748c19729"
+            },    
+            
+            
+           "TNT_5_UK": {
+                url: "https://live.ll.ww.aiv-cdn.net/OTTB/lhr-nitro/live/clients/dash/enc/gesdwrdncn/out/v1/79e752f1eccd4e18b6a8904a0bc01f2d/cenc.mpd",
+                k1: "60c0d9b41475e01db4ffb91ed557fbcc",
+                k2: "36ee40e58948ca15e3caba8d47b8f34b"
+            },
+            
+            "BEINBOCA": {
+                url: "https://bein-live.cdn.vustreams.com/live/f0fc61a0-b161-4eef-ae50-646c4f842b37/live.isml/f0fc61a0-b161-4eef-ae50-646c4f842b37.mpd",
+                k1: "54ef857b74c0c6e37b04022a87708382",
+                k2: "712ca8c470e9ff4f08915e7a7d91ff33"
+            },
+            
+            "BEIN_XTRA_N_ES": {
+                url: "https://bein-live.cdn.vustreams.com/live/f0fc61a0-b161-4eef-ae50-646c4f842b37/live.isml/f0fc61a0-b161-4eef-ae50-646c4f842b37.mpd",
+            k1: "54ef857b74c0c6e37b04022a87708382",
+            k2: "712ca8c470e9ff4f08915e7a7d91ff33"
+            },
+            
+            "V1SPORTS": {
+                url: "https://rikstv-live-scalstrm.telenorcdn.net/live/rikstv/644bb6e91dbc891fd422efc9/manifest.mpd",
+                k1: "4d808f2b9a74536cadbd95be141888ed",
+                k2: "9dd89f67b8885dc65721a8b1fbeae700"
+            },
+            "V2SPORTS": {
+                url: "https://rikstv-live-scalstrm.telenorcdn.net/live/rikstv/644bb6e91dbc891fd422efef/manifest.mpd",
+                k1: "0d3ff38c34985fdd81a37567646322b9",
+                k2: "6b4504297769acefae2e50920b7c8a77"
+            },
+            
+            "ARENA_1_PREMIUM": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/as_premium1.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_2_PREMIUM": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/as_premium2.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_3_PREMIUM": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/as_premium3.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_SPORTS_1_BH": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/arena1.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_SPORTS_2_BH": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/arena2.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_SPORTS_3_BH": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/arena3.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_SPORTS_4_BH": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/arena4.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_SPORTS_5_BH": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/arena5.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "ARENA_SPORTS_6_BH": {
+                url: "https://webtvstream.bhtelecom.ba/hls6/arena6.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },
+            "BHT1_BH": {
+                url: "https://webtvstream.bhtelecom.ba/hls19/bht1.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"    
+            },
+            
+            "ITALY_1": {
+                url: "https://live03p-seg.msf.cdn.mediaset.net/live/ch-i1/i1-dash-widevine.isml/manifest.mpd",
+                k1: "00f9f3c0783536b8ee91704e23b78016",
+                k2: "bfd04d6f544c9cc4d35cb13ab6778587"
+            },
+            
+            "EUROCUP": {
+                url: "https://director.streaming.telia.com/tvm-packager-prod/group3/613f17f514b809f854ec2c3d/manifest.mpd",
+                k1: "e6b92e6f0c6957d98aa0d4a23d890800",
+                k2: "e68568ca6147b0bb7b0fddc37061ddc6"
+            },
+            
+    
+            "ESPNPE": {
+                url: "https://1279247418.rsc.cdn77.org/bpk-tv/Q3ESPNUN03Q/dash/manifest.mpd",
+                k1: "7a05100cf840c1b06497842a7cf63da8",
+                k2: "5165fe404f62b779193fb2d1d59422fc"
+            },   
+            "ESPNPE2": {
+                url: "https://1279247418.rsc.cdn77.org/bpk-tv/Q3ESPNDOS3Q/dash/manifest.mpd",
+                k1: "bb61b5891e3c4901b64e2c2ecb625856",
+                k2: "8634fa31f047d8a532e49091110b2fc5"
+            }, 
+            
+            "ESPNPE3": {
+                url: "https://1279247418.rsc.cdn77.org/bpk-tv/Q3ESPNTHREE/dash/manifest.mpd",
+                k1: "47ee13c211e24dadb58990b6d09c1352",
+                k2: "ab0ec44e6b08d9fd205e92a668c76237"
+            }, 
+            "ESPNPE5": {
+                url: "https://1279247418.rsc.cdn77.org/bpk-tv/Q3ESPNF1VE/dash/manifest.mpd",
+                k1: "73a332a722a32d68db9f63f21cb073c1",
+                k2: "1cd1404cfe6a0375353f10127eb1e113"
+            },  
+            
+            "ADULT_SWIM": {
+                url: "https://live-atv-cdn.izzigo.tv/5/out/u/dash/ADULT-SWIM-HD/default.mpd",
+                k1: "694fa2e355b31ac2c52d0a56d3d8da59",
+                k2: "0d7eff2e4dc61d48489555068b0db46a"
+            }, 
+            
+            "STAR_CHANNEL": {
+                url: "https://live-atv-cdn.izzigo.tv/2/out/u/dash/FOX-HD/default.mpd",
+                k1: "3c768a448428f7e87aaf69da2a0662b0",
+                k2: "7f98805ed862b863d51e93f884161b74"
+            },  
+            
+             "WARNER": {
+                url: "https://live-atv-cdn.izzigo.tv/5/out/u/dash/WARNER-HD/default.mpd",
+                k1: "a62d210f0f907a0ebfb84a790d42780b",
+                k2: "590779be25e38a41d817f6ad13f5b070"
+            }, 
+            
+            
+             "MTV_80S": {
+                url: "https://webtvstream.bhtelecom.ba/hls18/mtv_80s.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            }, 
+            
+             "MTV_90S": {
+                url: "https://webtvstream.bhtelecom.ba/hls16/mtv_90s.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            }, 
+                
+                
+             "CLUB_MTV": {
+                url: "https://webtvstream.bhtelecom.ba/hls19/club_mtv.mpd",
+                k1: "c18b6aa739be4c0b774605fcfb5d6b68",
+                k2: "e41c3a6f7532b2e3a828d9580124c89d"
+            },    
+        
+            
+//m3U8
+            
+        
+            "TELEVIDAHLS": {
+                url: "https://unlimited1-buenosaires.dps.live/televidaar/televidaar.smil/playlist.m3u8"
+            },  
+            
+            "RCNXTRA": {
+                url: "https://latv-rcn-xtra-1-mx.tcl.wurl.tv/playlist.m3u8"
+            },   
+            
+            
+            "RCNMAS": {
+                url: "https://rcntv-rcnmas-1-us.plex.wurl.tv/playlist.m3u8"
+            },  
+            
+            "LATINAPE": {
+                url: "https://jireh-1-hls-video-ar-isp.dps.live/hls-video/567ffde3fa319fadf3419efda25619456231dfea/latina/latina.smil/playlist.m3u8"
+            }, 
+            
+            "TELEAMAZONAS": {
+                url: "https://teleamazonas-live.cdn.vustreams.com/live/fd4ab346-b4e3-4628-abf0-b5a1bc192428/live.isml/fd4ab346-b4e3-4628-abf0-b5a1bc192428.m3u8"
+            }, 
+
+            "LOVENATURE": {
+                url: "https://stream.srv.econocable.i.mtvreg.com/stream.m3u8?content-id=channel%3ALOVENATURE&content-expiration=1728350460&user-id=1960212661&device-id=1392351886&device-type=web&signature-ip=181.176.87.173&stream-quality=20&stream-format=m3u8&player-capabilities=adaptive2%2Cwebvtt%2Cvast%2Cclientvast&drm-system=&ott=0&parallel-limit=3&lang=es&signature-expiration=1728350460&signature-hash=0991f6f36c6353893fd3c6358c91f44e7c67a9a5d6a47e8b7b1a8bc832e365d3"
+            }, 
+            
+            "AMERICA_TVPE": {
+                url: "https://live-evg25.tv360.bitel.com.pe/bitel/americatv/playlist.m3u8?uid=3871129"
+            }, 
+            
+            "EXITOSA": {
+                url: "https://luna-1-video.mediaserver.digital/exitosatv_233b-4b49-a726-5a3cb0e3243c/index.m3u8"
+            }, 
+            
+            "EXITOSA2": {
+                url: "https://live-evg25.tv360.bitel.com.pe/bitel/exitosa/playlist.m3u8"
+            }, 
+
+
+            "NETTV": {
+                url: "https://unlimited1-us.dps.live/nettv/nettv.smil/playlist.m3u8"
+            }, 
+
+        };
+
+var id = getParameterByName('id');
+var config = ConfiguracionCanales[id];
+
+if (config) {
+    var sources = [];
+
+    if (config.url.includes('.m3u8')) {
+        sources.push({
+            file: config.url
+        });
+    }
+    
+    if (config.url.includes('.mpd') && config.k1 && config.k2) {
+        sources.push({
+            file: config.url,
+            drm: {"clearkey": {"keyId": config.k1, "key": config.k2}}
+        });
+    }
+
+ //JWWWWWW
+    jwplayer("player").setup({
+        playlist: [{
+            sources: sources
+        }],
+        autostart: false,
+        width: "100%", 
+        height: "100%", 
+        stretching: "exactfit",
+          aspectratio: "16:9",
+        cast: {}, 
+                sharing: {}
+        });
+        }             else if (id === "FOX1AR") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/mpdk/?get=aHR0cHM6Ly9zbWNkbjAyLnRyaW1pLmNvbS5hci9saXZlL3NtLWxpdmUvRk9YX1NQT1JUUy9zYV9saXZlX2Rhc2gvRk9YX1NQT1JUUy5tcGQ=&key=NGFjMjhjZGZhZGY0NDY1YWE2NzY0NWJiMWM0YzFkYzI=&key2=NGU1N2UyNWY4ZmNkZWE4OTUxYzFmYjgyZTYxZDc0NmM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }          else if (id === "ESPNCOL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/mpdk/?get=aHR0cHM6Ly92Y2RuLm1uMTAuZW50ZWwuYm8vQ29udGVudC9EQVNIL0xpdmUvQ2hhbm5lbCg4NzU3Y2IwYS0zNTg0LTQwY2QtOTAxZS04OTM3YzdkZWJhODMpL21hc3Rlci5tcGQ=&key=Y2IwMDRmYjEwMGJkOTJmMjM3OTM1NjI4OTFlMzIzNmI=&key2=YjNlNGU3NGFlMjA4MGIxMzdlNjhiYmQwZWY4YTdlMDU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "TELEFE_EXT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/disney/firewatch.php?r=https%3A%2F%2Fsmt-edge03.sensa.com.ar%2Flive%2Feds%2FTelefe%2Flive_dash_cld%2FTelefe.mpd%3Fck%3DeyI5YmI1NGZjY2ZmYWRkZDM4OTE2ZTg1YzA4ZGU5OGNjOSI6ImQwNmY1MDljNDE4ZWI2ZjFiMmZjMmI3NjY0NDUzMjhiIn0%3D%26headers%3DeyJvcmlnaW4iOiJodHRwczovL3BsYXllci5zZW5zYS5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly9wbGF5ZXIuc2Vuc2EuY29tLmFyLyJ9" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }
+        else if (id === "ESPNPREMIUM_EXT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/disney/firewatch.php?r=https%3A%2F%2Fcdn.sensa.com.ar%2Flive%2Feds%2FFoxSportsPremium%2Flive_dash_cld%2FFoxSportsPremium.mpd%3Fck%3DeyJmODk0M2QxMTRlMjUxNTFjOGFlNGY2MTIzNTFkNWE1ZiI6IjdmMzRjOWE3MGM4MzYwMjBjYmMzMjczYzQyN2ZmMjc3In0%3D%26title%3D%26headers%3DeyJvcmlnaW4iOiJodHRwczovL3BsYXllci5zZW5zYS5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly9wbGF5ZXIuc2Vuc2EuY29tLmFyLyJ9" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }
+        else if (id === "ESPN_EXT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/disney/firewatch.php?r=https%3A%2F%2Fcdn-cirion02.sensa.com.ar%2Flive%2Feds%2FESPN%2Flive_dash_cld%2FESPN.mpd%3Fck%3DeyI2ZDI0M2ViZDdhNTdiZWE0YjRiMDUyYWUxM2Y0YzA1MSI6IjVjMTkyNTg3OWRlODczZDQzYjdjMjU5MjU5MDI1MzliIn0%3D%26title%3D%26headers%3DeyJvcmlnaW4iOiJodHRwczovL3BsYXllci5zZW5zYS5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly9wbGF5ZXIuc2Vuc2EuY29tLmFyLyJ9" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }
+        else if (id === "ESPN2_EXT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/disney/firewatch.php?r=https%3A%2F%2Fcdn-cirion02.sensa.com.ar%2Flive%2Feds%2FESPN2%2Flive_dash_cld%2FESPN2.mpd%3Fck%3DeyI2YThiZDY0OTZkMjQ0NDMwMWM5ZDRkMGZlY2E5ZDc1YiI6IjNmZDE5Njc3MDFiYTI4OTc3MjkxODdiNjAwOTRjMTU4In0%3D%26title%3D%26headers%3DeyJvcmlnaW4iOiJodHRwczovL3BsYXllci5zZW5zYS5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly9wbGF5ZXIuc2Vuc2EuY29tLmFyLyJ9" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
         }
         
+        else if (id === "TNTSPORTS_EXT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/disney/firewatch.php?r=https%3A%2F%2Fcdn.sensa.com.ar%2Flive%2Feds%2FTNTSports%2Flive_dash_cld%2FTNTSports.mpd%3Fck%3DeyJjMjYzNzEwNzllODkyMDZkNjNlMTQ1NDg5M2U4ODFiNiI6ImFkYWMzYzNiMzc3NGU0MTFkNmU0OTcyNGY3ZWEwZWUzIn0%3D%26title%3D%26headers%3DeyJvcmlnaW4iOiJodHRwczovL3BsYXllci5zZW5zYS5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly9wbGF5ZXIuc2Vuc2EuY29tLmFyLyJ9" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } 
+    
+  
+        
+        else if (id === "RCN") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=402" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "RURAL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://www.youtube.com/embed/0eA-D1S7jRE?autoplay=1&mute=1" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "CARACOLTV") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=401" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "AMTVPE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=406" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ATVPE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=407" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "MEGACL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=403" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "CHVCL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=404" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "CANAL5MX") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=382" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+            }  else if (id === "TELETICA7") {
+            document.getElementById("player").innerHTML = '<iframe src="//bradmax.com/client/embed-player/c7c83ebb46fa89529a7383d933e2038729f8e4c9_13428?id=tv7&mediaUrl=https://cdn01.teletica.com/TeleticaLiveStream/Stream/playlist_dvr.m3u8&mediaUrl2=https://6zklxk9bdw9b-hls-live.5centscdn.com/TeleticaLiveStream/d072c3a8dde8622c607ecd258fd628e8.sdp/playlist_dvr.m3u8" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "UNIVERSALCINEMA") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFVOSVZFUlNBTF9DSU5FTUFfSEQpL21hbmlmZXN0Lm1wZA==&key=NjZlZTgxZmViZTc2ODg3NWFlMmZlZTViOGY1MTJlMTU=&key2=NTQ4ODI2OTQ3MzQ4NzRmMjgwMjU5ZmI4YjY3NjZhYjM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "UNIVERSALCRIME") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFVOSVZFUlNBTF9DUklNRV9IRCkvbWFuaWZlc3QubXBk&key=ZGQ4N2FjYTJkMzM4MTIyY2JkMjgzYmRkM2EwZjc1MDI=&key2=MmJkNDIzMTRiZGNmNDAyOGVlYjI1ZmNmNjFiN2I2ZTM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "UNIVERSALCOMEDY") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFVOSVZFUlNBTF9DT01FRFlfSEQpL21hbmlmZXN0Lm1wZA==&key=OWE3NzhmYmQ1NGE0YjIyODVjZWE4ZDQ0YzUxNGEyZmQ=&key2=ZDliZWZiMjU5ZjI1MjNkMTdkZDVmN2FlNWJhMmRkNzQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "UNIVERSALREALITY") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFVOSVZFUlNBTF9SRUFMSVRZX0hEKS9tYW5pZmVzdC5tcGQ=&key=YWVjZWQ4NmRkNmM1ZWNmNGYzOWNkMTkzMTA5ZjM5Zjc=&key2=YWZjYjViNjdmNTg0ZjJlZWIxNzgzNDc0NjQ0YTlmOGU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "UNIVERSALPREMIERE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFVOSVZFUlNBTF9QUkVNSUVSX0hEKS9tYW5pZmVzdC5tcGQ=&key=ZDAxYzk0ODhlNTI4Njk3YTljZDhlYmUzNWIwNjc3Mjk=&key2=YWJiNGQwYWZmMDUyNDhhZTVlNTNkM2U4NDU0NjcxZDY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBO") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCT19IRF9NWCkvbWFuaWZlc3QubXBk&key=MjRjMmE0ZGY4ZThkZGQxNzY2NjFjYTZlMGQ2MWIyNmI=&key2=YjFiMTM4ODlmNzFhOTY5MDJjMjg1ODIzMDIxNjNhNWM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBO2") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCTzJfSERfTVgpL21hbmlmZXN0Lm1wZA==&key=MmQyMzQ4N2I1Yjg4MWU0NGJhMGZhYjk3NTlmZDg1YTM=&key2=MDI5YzdmMTI4OTkzMDM0YWRmZTRiYzRlOTUxNDA0MjQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBOPLUS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCT19QTFVTX0hEX01YKS9tYW5pZmVzdC5tcGQ=&key=OGM2ZTkzM2YzMTU1NzhiNTExMWUyMjkyZmFmOTlmNzA=&key2=MzQ0NmYzNTk0Nzk1N2QzNzAxYzQ5ZmQxNzI5ZjIxNmY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBOFAMILY") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCT19GQU1JTFlfSEQpL21hbmlmZXN0Lm1wZA==&key=MWQ3ZWQzODE1Y2JhZTM3ODVjZWJmZTZiNDJmM2M2NTU=&key2=ZTEyNzAxMTEwOGI2YjViOTY0NmEwZGViM2E1ZDcxYmQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBOXTREME") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCT19YVFJFTUVfSERfTVgpL21hbmlmZXN0Lm1wZA==&key=M2RkNTljMWM5MzY1ODE4MTgyNjI5MTRhYzRkNWEyMjg=&key2=N2RiNzU0NWM2MTkxYjNkYjc3ZDc5YzRkODU0NjVlNDg=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBOMUNDI") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCT19NVU5ESV9IRF9NWCkvbWFuaWZlc3QubXBk&key=Y2Q4ZmEyMzA2NWRkYmYxMzQ3ZDA1YTg3OGUzOGZkOTI=&key2=ZjkwMDVkY2QyZGZhOTQ2ZjYxOWE2NzRmMDVkMmNhNzg=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBOPOP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCT19QT1BfSERfTVgpL21hbmlmZXN0Lm1wZA==&key=Mzk0MzM1MDk5YTZmMGU2ZjQzOTA0ZDhkMmRjNWEyM2Y=&key2=YjE0Y2UyZjYzODQ0NGIxNGUxZWY4MGRhNzBhMWI3YmU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HBOSIG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhCT19TSUdOQVRVUkVfSEQpL21hbmlmZXN0Lm1wZA==&key=ZTc5MGQyZmRkMWNiZmMzMWVjMDdjOWU2ZGUxYzU3Zjg=&key2=OWQyZWQzYmFkZDk3NjA3ZTRhZTBmODdjMDc4Y2RhMjc=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "GOLDENPLUS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEdPTERFTl9IRCkvbWFuaWZlc3QubXBk&key=YTJkNmE4NjMxMWMyMWEyYzBmNmU5MGQ1OGZkN2U1OTA=&key2=YjU2MDdlMzg5MWU4ZmI0YzBjYzgyZDhmODJhYmU1Njk=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "AE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEFFX01VTkRPX0hEKS9tYW5pZmVzdC5tcGQ=&key=NjU0MzkxODhmZTgxOTY2N2JhMzE3MzFmNTljN2MyOGI=&key2=MDExZWZjYjg2ZGMwYzMzNmMxYmI2MWQ2MDJjNzE2OTE=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "SONY_CHANNEL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFNPTllfSEQpL21hbmlmZXN0Lm1wZA==&key=YjJiNDVkN2E3ZGIwNzM3MGYzYTFjNWU5MTY0NmIwNjI=&key2=MmViMzdkYWVjYmI0MzhlNThjMzE2NjQ2YjcxNWZjODI=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "STUDIO_UNIVERSAL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFNUVURJT19VTklWRVJTQUxfSEQpL21hbmlmZXN0Lm1wZA==&key=OWEwNzJlYWQyZDAxYTU0NThhNWZmZWVjZjk3NzU4MTY=&key2=MTM3YmZiZmJmZWQzNjQxOWM4ZTFkNmU2MTllY2VkOGQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "TNT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFROVF9IRCkvbWFuaWZlc3QubXBk&key=YTczODgzNTBlYjU0YTk0OGZkMjIwMTYxNTE1Zjg1NDY=&key2=ZTZkMjI3NzdmZmE3YjNmYzA0OTNjODRjYWE5Y2YzZjU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "PARAMOUNT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFBBUkFNT1VOVF9IRCkvbWFuaWZlc3QubXBk&key=YTI4ZmRlNjkwOGUwYjBkMDMxMzI0OTg2NjE3ZDY5YTM=&key2=MDk1YjI3OGNmZTY1YTVlNDY3YjlmMmE2OTNkYjBkMTI=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "UNI_TV") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFVOSVZFUlNBTF9DSEFOTkVMX0hEKS9tYW5pZmVzdC5tcGQ=&key=OTYzODhmOWM5Y2JjNzNkNDI1NmE5Nzk3NGY5YTJhZWY=&key2=YzJjZDE5YzJlNzNjOGI3ZDZjMzg0YmE3NDUxNjE0NDQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "DHE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERIRV9IRCkvbWFuaWZlc3QubXBk&key=M2E1NWU5YmNiYWUzOTExMzA5NjhmZDIzM2Y1MWY0YTM=&key2=NmNmMjIwMDA1MTJhNjMxZDBlMmI4ZTY3YWIwODMxMjk=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "FX") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEZYX0hEKS9tYW5pZmVzdC5tcGQ=&key=NmU2NzdlZWQzZGNhNGI1MTY2N2M3MzhhZGRiY2IyNWE=&key2=YTg2NDMxNmIxMjRmMWI4NjZiN2NhNzQyNDZkMWU1OTA=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "AXN") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEFYTl9IRCkvbWFuaWZlc3QubXBk&key=ODdkMjViMTNhN2Y5ZWEyZGM1ZGFhODE4ZDQxNWMxODc=&key2=Y2EzN2ZmMThlYjRmMmEyYWI1YWFhYjU5MTFiNDc1MTc=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "CINECANAL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKENJTkVDQU5BTF9IRCkvbWFuaWZlc3QubXBk&key=ZjY3YzJjOTM2YTQyZTQzNjVkNmE0NmVkMTNjZDM2OTA=&key2=MjVjNzFjOTI3YjEwOGUyN2JkMzRjMGI3MmVlMmNlOTY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "NATGEO") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKE5BVEdFT19IRCkvbWFuaWZlc3QubXBk&key=YjljMjBkYWM1YmJlYTVlMzc1YTE0ZjgyNmJmMmM2ODU=&key2=ZDg0ZDkwMTkzYjE5MmEzNjA0ZjQxY2Y0YzIxM2RhZDc=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "HISTORY_1") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEhJU1RPUllfQ0hBTk5FTF9IRCkvbWFuaWZlc3QubXBk&key=YmRiNzE3MWE4OWIyMWFmZmFhYmNiZmI4YzYwNjViNDI=&key2=ZWNmMzJlYTUzOWY0MjA5ZjYyYzZiOTZiNGI3ZTdmMDM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "USA_NETWORK") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFNZRllIRF9BUkcpL21hbmlmZXN0Lm1wZA==&key=Njk0ZmIwNWE5MzljMDJiY2Y0NDU5OTllOTQ1Yjg2MTk=&key2=NGUxMDI5ZWM0YmYxYTA1ZTgzZmQzZDFkNGI1NDBiY2M=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DISCOVERY_ID") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKElEX0hEKS9tYW5pZmVzdC5tcGQ=&key=ZmYyNDI4NzI1ZGYwMzg2Mjc5YjZlZWE1Nzk4NWI3OTI=&key2=YmM3ZTc2ZDM3ZjhiMzU3NzA3Nzc4YmZkNjZhZTc5NDQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DISCOVERY_TLC") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFRMQ19IRCkvbWFuaWZlc3QubXBk&key=ZWIzMjU1YzRhZGM0NmYwYTYwYzc3NWFhYjIyOTI5YmQ=&key2=MGQzNTc1OTI0MTM1YjRjYTc5ZTUwNWZhODk4YjA5ZTk=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DISCOVERY_CHANNEL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9DSEFOTkVMX0hEKS9tYW5pZmVzdC5tcGQ=&key=ZTdkNDM0ODQwN2JmODZkOTgyMDc2ZmIwZmZhNjU0ZTY=&key2=ODBhY2M1NGQzYzU2ZWQwNzcwYzRmMTJmOTFiNTNiNjg=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DISCOVERY_THEATER") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9USEVBVEVSX0hEKS9tYW5pZmVzdC5tcGQ=&key=NjE4MzJhMjhiYzdhNTE1NzNkM2I5OWI1YzU0NDVkYmY=&key2=ZjNkMDQzNmNhM2U4Mzc0YjZiYzE5YzU3ZTljYmU1Yzc=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "HGTV") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9DSVZJTElaQVRJT04pL21hbmlmZXN0Lm1wZA==&key=NWE1NjI2Zjc3NmRjNmE4OGQxMzZhYmU0YTI2MWUyODc=&key2=NGE3OGY4NDg4YjM4MWFiNTcyNDFmN2QxM2IyZDQzMjQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "MTV") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKE1UVl9IRCkvbWFuaWZlc3QubXBk&key=ZWNiYjg1NDFmMGRiMjhlNjZjZWM2MjA3NTNlMWE3MmI=&key2=OWUwZTZkOTk5M2E2MGY3NjUyYjdmNTVhOGNkZjZiZjQ=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "MTV_HITS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKE1UVl9ISVRTKS9tYW5pZmVzdC5tcGQ=&key=Nzg4MWM2OTlhOTE1ZmQyNWU0NDFmNmQ3YTg3NGQ3ZGE=&key2=Yjc1NzRkZmVlNDMzZDA0MDlhYTU1YTQ1MDNhOTA2ZWU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "MTV_LIVE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKE1UVl9MSVZFX0hEKS9tYW5pZmVzdC5tcGQ=&key=OTg4MWQxNDYwMDBiOGQ1ZDQ1NDYxMzA3Yzg3ZmJiYTk=&key2=MjRkZjIyYzNkMDIxNGU2Nzg1NzgzNDcwMzE1YWQwMTg=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "MTV_00S") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFZIMV9IRCkvbWFuaWZlc3QubXBk&key=MzhkZmMzN2Y5ZGQ1MmRiODU0MjFmZjhlYjExNWRmZjY=&key2=MzA5MmY4YmQ4OTRlYmY4YjhjZDQ5Njc3OTBmZDY5MWY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "TELEMUNDO") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFRFTEVNVU5ET19IRCkvbWFuaWZlc3QubXBk&key=M2IxMDYyMzNiYTVkYWJjODhjY2YzNWU0Yzk4MjgyMzY=&key2=NTZiNzNmM2JmNTgyYjRlYmQ1MDllMjcyNDU4NTJlNjY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "A3CINE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEEzQ0lORSkvbWFuaWZlc3QubXBk&key=MjE1ZWM3MzRkNzc5MDM0OTZiNmI3ZTkwYWNmZmNlOTY=&key2=NWQzNWVhOWJjNDIzZDg4OWExZDc1ZjZmZWIxZTFjZmU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "CINEMAX") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKENJTkVNQVgpL21hbmlmZXN0Lm1wZA==&key=MWY2NDUzZGYwOTQ2OTA0YjliYTA4ODUyNWZlZjc4MmQ=&key2=NzY3MzQxMTdmMjI1NjM4YzlkOWVkMTk3YTMwYWIwNzM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "CINEMAXHD") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKENJTkVNQVhfSEQpL21hbmlmZXN0Lm1wZA==&key=ZTg1Mzg1NjkzMjg1MWRiZTc4ZDBkOTRmZGYyOTZmZWU=&key2=OTM2OTBkYmJkNTg4NGVjZDRiODFlOTg4MGM4MjliMWY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "PASIONES") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFBBU0lPTkVTX0hEKS9tYW5pZmVzdC5tcGQ=&key=NmJiZGQ1YTZhMjFlYTNkNWJlYzM0YzUxNTA3OGUxMjQ=&key2=YTk3NTI4Mzg0NjQyN2QyNWRmMTNhMzQ1YmM0MGJkYzE=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "TLN") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFRMTk9WRUxBUykvbWFuaWZlc3QubXBk&key=ZTc4MzkxZGViNTcwNmY5MzExZDk1MmQ2YmU2YTYxMzk=&key2=NmYxOGYyNDQzMzI4OGQ5NDYyNTk3YWVkNTgxMzgzMzY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "H2") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKEgyX0hEKS9tYW5pZmVzdC5tcGQ=&key=MzMyOTBlZGM0MTE3ZDYxMjIxOGZkYzZiMWI3YzFhYWM=&key2=MzMyNWQ0M2JmNzgzZDBmOTIyOTdmNTcwNWI0YjNmZmI=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "WORLD") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9XT1JMRF9IRCkvbWFuaWZlc3QubXBk&key=ZmFkNDIzNjdjYmEzMDExMTRjMjVlOWM1MjI2NjU2YWQ=&key2=NjUyYTVmMzM1M2UwNDU0NjRhODYwN2I2N2ViZmU4ZDg=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "SCI") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9TQ0lFTkNFKS9tYW5pZmVzdC5tcGQ=&key=YmNlYzYzOGQ0MzQxYTU2NjJkZjk3NzIxMzU0ZmQzMmE=&key2=ZjdmMWZlOWZkNTZmOWM2NDE5YmQyN2EzMTBjYzcwNWY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "TURBO") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9UVVJCT19IRCkvbWFuaWZlc3QubXBk&key=M2MwYWU4MTIxNmU2MGU2N2I3NjJmYjVmMTIxMDY4NTA=&key2=YTcyNTA0NDBhY2VhNzk5NjlmNzljNzRmN2Y5MzEzMmI=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "HYH") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9IT01FX0hFQUxUSF9IRCkvbWFuaWZlc3QubXBk&key=ZWQ3ZGI5OTNlNDgzMzA4ZGNkMWQzYTI2NjAxOGQ3ODc=&key2=ZGVmNTI4ODc1NTU5OTYzZDNmMTI1YWY4NzVhZTA4YzM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "CN") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKENBUlRPT05fTkVUV09SS19IRCkvbWFuaWZlc3QubXBk&key=M2E4MjdmN2ZlZGU0NGQ4ZDk3M2NiYmFhYjBjMDg5YzA=&key2=ZjkxZWViM2M3YzEyZDkzOTE0MzRkYzc5YTg3MmMwYjk=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "DISCHANNEL") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU05FWV9IRCkvbWFuaWZlc3QubXBk&key=MDI3ZTYzN2FmZWQ3ZGIxMTg1M2ZmMWExOWNjOGU0ZGI=&key2=NjA4ZjkxZjA1NTM2ZjVhNmM5M2U3MGNkZDk1YWJhNWM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "DISJUNIOR") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU05FWUpSX0hEKS9tYW5pZmVzdC5tcGQ=&key=MmE1NGZjYzllMzllYmI3MWEwYTkxYjBiN2UxOTQ2Yjk=&key2=MDcyMGY0OTAxNjE3YmYzZGIzNTgxZDU1MTEwZDdlZjY=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "DISKIDS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKERJU0NPVkVSWV9LSURTX0hEKS9tYW5pZmVzdC5tcGQ=&key=NjUxZjZkZDY5NjdmNjkyNjY1MzlmYWNhNTMzNmZjNzk=&key2=Y2FiMDFiODFhMWRjNzc3MmZlZjQ5NGU1Zjg5OGI1MGM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "NICK") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKE5JQ0tFTE9ERU9OX0hEKS9tYW5pZmVzdC5tcGQ=&key=ZTY1ZmYyODhiMDMyZWM1ZWE3MGRlZTQyMzBiYTA0ODA=&key2=OTAyZWYyZGUyZjk5ZjhkZGZjMGQ4ZDVlYjI2MWU4ZWE=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "NICKJR") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKE5JQ0tfSlJfSEQpL21hbmlmZXN0Lm1wZA==&key=NDIxYmY0MWU3ZGUwZjk4NjlhYTEzYWEzNDIwMGJiNzU=&key2=NGIzZGZiM2U3ZmIyYjY1ZjYwN2VlNDI5MGFiNzQyODM=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "CV") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKENMQVJPX1NQT1JUU19MQVRBTV9IRCkvbWFuaWZlc3QubXBk&key=NzRjZGNiNjNmZjNlNGYzY2U0ZGE0MjQzYjZkMWUxZDg&key2=OWI4MzY2ZmE4ZTllYmNkZjRiMzQ5ZDZjOWQ1MjgxMTU" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "TNTNOVELAS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFRCU19IRCkvbWFuaWZlc3QubXBkIA==&key=ZjkwYTQwNjZhYjk4MWQ5ZmVmMWQxMGI4NzY3MjU0ODEg&key2=YWEzNzVjMmZiNThjY2Y5NjI5MzFhNGFkNWQyYWM2NDA=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "ASS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/as.html" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "AZ") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/disney/firewatch.php?r=https%3A%2F%2F1234-tbx.dtvott.com%2Fadultswim%2Fmanifest.mpd%3Fck%3DewogICAgIjUzNDhiMzRiNjY3MjUyMDE4N2U4ODI1YjIwMTE5NzczIjogIjY3YTE2MTlmNWRlZWNkNmVmMTg3YzY2OGNhMTdlNWU2IiwKICAgICIwNmRhYTNhNTBlYjc1M2M2ODJjMjUyMDg2YTU5ZjQwZSI6ICJlNzAxZDE3MzAxNGRlMzMwNTg3YTNjZTc5NGRhOGUzZCIsCiAgICAiODY0OTJhNDVmYjM3NWRmMTgxZTdhZmJlYjdlNjJlN2YiOiAiZDI4ZTJiOGE0ZTY0Y2Y1OGUxYzExZjJjZjVkOWMxNmIiLAogICAgImFkYjA3OWJkYTdjYjVhN2I4NTQ5ODE2Y2VlZDNlOGQ1IjogImU3ZmVmOTZmYzVmNmM1ZjA1MDAwZmU0ZjRmNjg4ZWQwIiwKICAgICIzYmY2ZjI3MTg1OWY1ZmY1OGFiYmE2YzE5OGMxZmZiZCI6ICJlOGY1M2FmZjAyNTBkOGEzMzY2YTgyNGZlNjIwMDdhMyIsCiAgICAiMWI2YjczZmYxMjIxNWZhOTgxNTkzNGJkZDliMzgwNWIiOiAiMjU5M2EzMTYzMzA3N2VjNmFmNzllNGVlYzViZGRjNWYiLAogICAgImJhYjMyMWE3YTYyYTU5MTM4MmJiZmYyYmUyNDAwNDZhIjogIjRjMTIzMmQ4YjVjYmZlMjNlZWY5ODk3ZjdhOGZiZjM2IiwKICAgICIyZDM5OTczMjE0NDk1Zjk0ODFmOWI1OGUzMGI0YzJiYiI6ICI1ZGMyZTk0MjIyYWM2NzI5NjZiN2FiNDdiMTg5ZjUwMiIsCiAgICAiZDA2MjJhNWNjNDM3NWVjZDhmNTJlNzY3MTI4MjRmNDEiOiAiMzI3NWI2NmUzZDNmNTU3NWQ3NWRhMjNlODMxMjYyZGIiLAogICAgIjQzODRjODUwNDZiNTVhZmFiZDg5MDUzNzAyZDNkMzI4IjogIjc2YjYwNmE4YjRhYjZiY2YzMzUzYzM5NjUwZDQ0ZjY2Igp9Cg==" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "SPACE") {
+            document.getElementById("player").innerHTML = '<iframe src="https://clarovideo.nebunexa.co/?get=aHR0cHM6Ly9sYXRhbXZvc2xpdmVjbGFyb3ZpZGVvLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIX0RBU0hfRksvTGl2ZS9DaGFubmVsKFNQQUNFX0hEKS9tYW5pZmVzdC5tcGQ=&key=ODk4ODhlYjZhMjEwMjY5YzE0YzY5YmEzMzNkNmNjODg=&key2=NjhmNTZmYTRmYTVkN2E2ZjczMjc3ZDM2N2Q3ZTEyMmU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ZAPPING_SPORTS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=1796" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "SPORT_TV1_PT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=368" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "INTER_MIAMI_EVENTOS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=1989" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "FUTV") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=32" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "TIGO_PY") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=2042" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "DAZN_1_ES_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=24" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DAZN_2_ES_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=25" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DAZN_F1_ES_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=21" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DAZN_LA_LIGA_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=20" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "ESPN_MX_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=44" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } else if (id === "SKY_SPORTS_MAIN_EVENT_UK_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=447" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "SKY_SPORTS_FOOTBALL_UK_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=369" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "SKY_SPORTS_PREMIER_LEAGUE_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=370" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "PREMIER_SPORTS_1_UK_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=1822" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "PREMIER_SPORTS_2_UK_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=1823" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ESPN_US") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=411" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DAZN_1_ES_STP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://streamtp.live/global1.php?stream=dazn1" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DAZN_2_ES_STP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://streamtp.live/global1.php?stream=dazn2" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "DAZN_LA_LIGA_STP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://streamtp.live/global1.php?stream=dazn_laliga" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ESPN_MX_STP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://streamtp.live/global1.php?stream=espnmx" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ESPN_DEPORTES_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=41" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ESPN_DEPORTES_STP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://streamtp.live/global1.php?stream=espn_deportes" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "TUDN_USA_TT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://tutlehd5.com/online.php?a=38" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "TUDN_USA_STP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://streamtp.live/global1.php?stream=tudn_usa" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "TUDN_USA_STP") {
+            document.getElementById("player").innerHTML = '<iframe src="https://streamtp.live/global1.php?stream=tudn_usa" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "HISTORY_DISH") {
+            document.getElementById("player").innerHTML = '<iframe src="https://nebunexa.co/mpdk/?get=aHR0cHM6Ly9kaXNoLmFrYW1haXplZC5uZXQvQ29udGVudC9EQVNIL0xpdmUvY2hhbm5lbChoaXN0b3J5KS92YXJpYW50Lm1wZA==&key=YzYwODI1YmVmN2Y3OWEzMDY5NmU4MzU1MzJlMmMxZTU=&key2=OTkxN2JlODM3OGRkY2I4ZmY0YWEyNmM1NTRkYTYzOWU=" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "TYCARG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/tycarg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "DSPORTS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/directvarg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "DSPORTS2") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/directv2arg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "ESPNARG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/espn1arg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ESPN2ARG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/espn2arg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "ESPN3ARG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/espn3arg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "ESPN3ARG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/espn3arg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "ESPNPREMIUM") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/espnpremarg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "FOXSPORTS1ARG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/foxsp1arg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "FOXSPORTS2ARG") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/foxsp2arg.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "WINPLUS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/winpluscol.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }     else if (id === "DSPORTSECU") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/directvecu.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }     else if (id === "GOLTVECU") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/goltvecu.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "ECUAVISA") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/ecuavisa.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "GOLPERU") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/goltvperu.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "TUDN_USA") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/tudnusa.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "SPORT_TV1_PT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/sporttv1por.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }   else if (id === "SPORT_TV2_PT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/sporttv2por.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "SPORT_TV3_PT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/sporttv3por.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "SPORT_TV4_PT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/sporttv4por.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "SPORT_TV5_PT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/sporttv5por.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "SPORT_TV6_PT") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/sporttv6por.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }    else if (id === "M_DEPORTES") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/mdeportes.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DAZN_1_ES_KS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/dazn1es.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        }  else if (id === "DAZN_2_ES_KS") {
+            document.getElementById("player").innerHTML = '<iframe src="https://kingstreamz.lol/tvlibre/dazn2es.php" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0" style="position:absolute; top:0; left: 0"></iframe>';
+        } 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
 
-
-          
- 
-    };
-</script>
-        <script>
-    // Llama al método en el WebViewJavaScriptInterface para cargar el anuncio nativo
-    AndroidInterface.cargarAnuncioNativo();
-</script>
-
-        <script>
-  // Función para manejar clics en cualquier lugar del documento
-  function manejarClicEnDocumento() {
-      // Llamar a la función de la interfaz JavaScript
-      Android.manejarClic();
-  }
-
-  // Asignar la función al evento de clic en el documento
-  document.addEventListener('click', manejarClicEnDocumento);
-</script>
-</div>
+</body>
+</html>     
