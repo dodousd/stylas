@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Streaming con Clappr</title>
+    <script src="//cdn.jsdelivr.net/npm/@clappr/player@0.8/dist/clappr.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/@swarmcloud/hls/p2p-engine.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+    <script>
+        // URL base y token
+        var baseURL = "https://14c5.pricesaskeloadsc.com:443/global/espn1/index.m3u8";
+        var token = "e221e057929800df5c68a08a2553b6f2bc618bc6-0c-1732696553-1732660553";
+
+        // Función para generar la URL actualizada
+        function getPlaybackURL() {
+            // Aquí puedes implementar cualquier lógica adicional necesaria para actualizar el token automáticamente
+            return baseURL + "?token=" + token;
+        }
+
+        var p2pConfig = {
+            live: true,
+            trackerZone: 'us'
+        };
+
+        P2PEngineHls.tryRegisterServiceWorker(p2pConfig).then(() => {
+            var player = new Clappr.Player({
+                source: getPlaybackURL(),
+                parentId: "#player",
+                poster: '',
+                width: '100%',
+                height: '100%',
+                autoPlay: true,
+                plugins: []
+            });
+
+            p2pConfig.hlsjsInstance = player.core.getCurrentPlayback()?._hls;
+            var engine = new P2PEngineHls(p2pConfig);
+
+            // Actualiza la fuente del reproductor cada 60 minutos
+            setInterval(() => {
+                player.load(getPlaybackURL());
+            }, 3600000); // 3600000 ms = 60 minutos
+        });
+    </script>
+
+
+</body>
+</html>
