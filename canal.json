@@ -1,0 +1,29 @@
+{
+    "channels": [
+      {
+        "name": "Canal 5",
+        "type": "M3U8",
+        "url": "https://example.com/canal1.m3u8",
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgF3YBg5nRFiObvHUDGzuNzd4llUAbRtM5xS41tO3VrHQS7-Rn_y4EApcUHmEBhHpKL6QMQC0fkwln-2sz_DfUsiHjwUIyJL8piyTi7nQ0KMM4u-aV_9HwqV4qWqTx4-XwLb3uHiMFcdFA/h120/canal5.png",
+        "options": [
+          { "quality": "720p", "url": "http://181.78.105.146:2000/play/a038/index.m3u8" },
+          { "quality": "1080p", "url": "http://181.78.105.146:2000/play/a038/index.m3u8" }
+        ]
+      },
+      {
+        "name": "ESPNPE2",
+        "type": "MPD",
+        "url": "https://1279247418.rsc.cdn77.org/bpk-tv/Q3ESPNDOS3Q/dash/manifest.mpd",
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYhlo8xUKeiHN1pAW-F-12xWVWnL_CVG9t0ynWAIneSfQeIle8yYomzyc2SGZ89XKkGYJ3GWLhJwV1FcSJ4TFY3EztVazm8TyRaZxBML43XxwtqNm5chu-3oMEj6v8W3S2gK2wg2V0NgM/s1600/espn2.jpg",
+        "keys": {
+          "k1": "bb61b5891e3c4901b64e2c2ecb625856",
+          "k2": "8634fa31f047d8a532e49091110b2fc5"
+        },
+        "options": [
+          { "quality": "SD", "url": "https://1279247418.rsc.cdn77.org/bpk-tv/Q3ESPNDOS3Q/dash/manifest.mpd" },
+          { "quality": "HD", "url": "https://1279247418.rsc.cdn77.org/bpk-tv/Q3ESPNDOS3Q/dash/manifest.mpd" }
+        ]
+      }
+    ]
+  }
+  
