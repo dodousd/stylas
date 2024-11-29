@@ -6,8 +6,8 @@
         "url": "https://example.com/canal1.m3u8",
         "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgF3YBg5nRFiObvHUDGzuNzd4llUAbRtM5xS41tO3VrHQS7-Rn_y4EApcUHmEBhHpKL6QMQC0fkwln-2sz_DfUsiHjwUIyJL8piyTi7nQ0KMM4u-aV_9HwqV4qWqTx4-XwLb3uHiMFcdFA/h120/canal5.png",
         "options": [
-          { "quality": "720p", "url": "http://181.78.105.146:2000/play/a038/index.m3u8" },
-          { "quality": "1080p", "url": "http://181.78.105.146:2000/play/a038/index.m3u8" }
+          { "quality": "720p", "url": "https://mdstrm.com/live-stream-playlist/5f2d9d6ff17144074bd8a284.m3u8" },
+          { "quality": "1080p", "url": "https://mdstrm.com/live-stream-playlist/57bf686a61ff39e1085d43e1.m3u8" }
         ]
       },
       {
