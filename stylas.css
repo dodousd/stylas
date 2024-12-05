@@ -250,7 +250,9 @@
     .INDYCAR > a:before {
         background-image: url(https://partidosenvivo.net/flags/indycar.webp);
     }
-
+    .NCAA > a:before {
+        background-image: url(https://partidosenvivo.net/flags/ncaa.webp);
+    }
     .RU > a:before {
         background-image: url(https://www.sofascore.com/static/images/flags/ru.png);
     }
