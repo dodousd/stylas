@@ -1,362 +1,259 @@
-@charset "UTF-8"; body{ font-size: 100%;background: #ffffff}a {text-decoration: none}ul,ul ul {margin: 0;padding: 0;list-style: none}#wraper {width: 100%;margin: 0 auto;font-size: .8125em}.menu {width: auto;height: auto;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .73), 0 0 18px 0 rgba(0, 0, 0, .1);-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .73), 0 0 18px 0 rgba(0, 0, 0, .1);box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .73), 0 0 18px 0 rgba(0, 0, 0, .1)}.menu>li>a { background-color: #000;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(rgb(255,255,255)),to(rgb(148,204,124)));background-image: -webkit-linear-gradient(top,rgb(255,255,255),rgb(255,255,255));background-image: -moz-linear-gradient(top,rgb(255,255,255),rgb(255,255,255));background-image: -o-linear-gradient(top,rgb(255,255,255),rgb(255,255,255));background-image: -ms-linear-gradient(top,rgb(255,255,255),rgb(255,255,255));background-image: linear-gradient(top,rgb(255,255,255),rgb(255,255,255));filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#727a86',EndColorStr='#505864');border-bottom: 0 solid #33373d;-webkit-box-shadow: inset 0 1px 0 0 #878e98;-moz-box-shadow: inset 0 1px 0 0 #878e98;box-shadow: inset 0 1px 0 0 #878e98;width: 100%;height: 2.8em;line-height: 2.8em;text-indent: 7.9em;display: block;position: relative;font-family: arial,Arial,Helvetica,sans-serif;font-weight: 600;color: #000;font-size: 1em;
-    text-shadow: 0 0 0 #000}.menu ul li a {background: #fff;border-bottom: 1px solid #efeff0;width: 100%;height: 2.8em;line-height: 2.8em;text-indent: 3.75em;display: block;position: relative;font-family: arial, Arial, Helvetica, sans-serif;font-size: 1em;font-weight: 500;color: #789}.menu ul li:last-child a {border-bottom: 1px solid #33373d}.menu>li>a:hover, .menu>li>a.active {
-    background-color: #dfca0870;background-image: -webkit-linear-gradient(top,#fffb00e8 ,#ffd900 );border-bottom: 1px solid #404040;box-shadow: inset 0 1px 0 0 #404040;
-    }.menu>li>a.active {border-bottom: 0 solid #404040}@media only screen and (max-width: 600px) {.menu > li > a:before {left: 22px;}}.menu > li > 
-    a:before {content: '';background-repeat: no-repeat;background-size: contain; background-position: center;font-size: 25px;height: 0.8em;width: 1.7em;position: absolute;left: 55px;top: 55%;margin: -.45em 0 0;} .menu>li>a span {font-size: .95em;display: inline-block;position: absolute;left: .3em;top: 50%;background: #fff;line-height: 1em;height: 1em;padding: .3em .6em;margin: -.8em 0 0;color: #222d36;text-indent: 0;text-align: 
-    center;-webkit-border-radius: .769em;-moz-border-radius: .769em;border-radius: .569em; -webkit-box-shadow: 
-    inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);-moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);text-shadow: 0 1px 0 rgba(0, 0, 0, .5); font-weight: 500}.menu>li>a:hover span,.menu>li a.active span {background: 404040}.menu>li>ul li a:before {content: '►';font-size: 9px;color: #000; position: absolute;width: 1em;height: 1em;top: 0;left: -2.7em}.menu>li>ul li:hover a,.menu>li>ul li:hover a 
-    span,.menu>li>ul li:hover a:before { color: #2e9afe}.menu ul>li>a span {font-size: .857em;display: inline-block;position: absolute;right: 1em;top: 50%;background: #fff;border: 1px solid #d0d0d3;line-height: 1em;height: 1em;padding: 0.4em 0.7em;margin: -0.9em 0 0;color: #000;text-indent: 0;text-align: center;-webkit-border-radius: 0.769em;-moz-border-radius: 769em;border-radius: 769em;text-shadow: 0 0 0 rgba(255,255,255,.01);}
-     div.sombreada_css3 {background-color: #8baf1c;width: 100%px;padding: 12px;color: #002399;box-shadow: 0px 
-    1px 1px #333;-webkit-box-shadow: 0px 1px 1px #333; -moz-box-shadow: 0px 1px 1px #333;}
-  
-    .AR > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/55.png);
-  }
-  
-  .ES > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/34.png);
-  }
-             
-  .IT > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/37.png);
-  }
-  
-  .ALE > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/96.png);
-  }
-  
-  .ENG > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/61.png);
-  }
-             
-  .POR > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/43.png);
-  }
-  
-  .FRA > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/45.png);
-  }
-  
-  .MEX > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/69.png);
-  }
-  
-  .COL > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/118.png);
-  }
-             
-  .CH > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/35.png);
-  }
-  
-  .URU > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/56.png);
-  }
-  
-  .BRA > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/79.png);
-  }
-  
-  .PE > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/127.png);
-  }
-  
-  .ECUA > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/101.png);
-  }
-  
-  .BOL > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/47.png);
-  }
-  .ATP > a:before {
-      background-image: url(//futbolgratisenhd.com/flags/atp.webp);
-  }
-  .PY > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/840.png);
-  }
-  
-  .JP > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/52.png);
-  }
-  
-  .AUS > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/74.png);
-  }
-  
-  .USA > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/81.png);
-  }
-  
-  .SCO > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/113.png);
-  }
-  
-  .CR > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/98.png);
-  }
-  
-  .CR > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/98.png);
-  }
-             
-  .TUR > a:before {
-      background-image: url(https://images.onefootball.com/icons/teams/164/123.png);
-  }
-  
-  
-             
-  .menu > li.AFCCUP > a:before {
-      background-image: url(//futbolgratisenhd.com/flags/afccup.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-      font-size: 36px;
-      height: 0.9em; 
-      width: 2em;
-      position: absolute;
-      left: 45px;
-      top: 55%;
-      margin: -.5em 0 0; 
-  }
-  .menu > li.NHL > a:before {
-      background-image: url(//futbolgratisenhd.com/flags/nhl.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  .menu > li.NBA > a:before {
-      background-image: url(//futbolgratisenhd.com/flags/nba.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.WWE > a:before {
-      background-image: url(https://clipart-library.com/2023/WWE-Logo-PNG-Clipart.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  .menu > li.AFC > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/155.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.CHA > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/5.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.UE > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/7.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.UEC > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/2762.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.LIB > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/76.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.SUD > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/102.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  
-  .menu > li.AMERICA > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/37.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.EURO > a:before {
-      background-image: url(https://images.onefootball.com/icons/leagueColoredCompetition/128/20.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.BAS > a:before {
-      background-image: url(https://static.futbolenlatv.com/img/32/20130618113234-baloncesto.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  
-  .menu > li.TE > a:before {
-      background-image: url(https://static.futbolenlatv.com/img/32/20130618113307-tenis.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-   font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.FUT > a:before {
-      background-image: url(https://static.futbolenlatv.com/img/32/20130618113222-futbol.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.RUG > a:before {
-      background-image: url(https://static.futbolenlatv.com/img/32/20200729125932-rugby.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.NFL > a:before {
-      background-image: url(https://static.futbolenlatv.com/img/32/20200804171715-futbol-americano.png);
-      background-repeat: no-repeat;
-      background-size: contain; 
-      background-position: center; 
-  font-size: 22px;
-      height: 1em;
-      width: 2em;
-      position: absolute;
-      top: 50%;
-      margin: -0.5em 0 0;
-  }
-  
-  .menu > li.AEW > a:before {
-      background-image: url(//futbolgratisenhd.com/flags/aewusa.jpg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      font-size: 36px;
-      height: 0.9em;
-      width: 1em;
-      position: absolute;
-      left: 65px;
-      top: 55%;
-      margin: -0.5em 0 0;
-  }
-  
-  @media only screen and (max-width: 600px) {
-      body {
-          font-size: 70%;
-      }
-  
-      .menu > li > a:before {
-          height: 0.91em !important; 
-          width: 0.6em !important;
-          left: 45px;
-      }
-      .menu > li.NHL,.WWE,.NBA> a:before {
-          height: 1.0em; 
-          width: 0.7em;
-      }
-  
-  
-  }
-  
-  
+	.card-body a {
+				text-decoration: none;
+			}
+
+			.btn-fl:hover {
+				cursor: pointer;
+			}
+
+			@media (max-width: 767px) {
+				.logo-mobile {
+					display: none
+				}
+			}
+		    
+                                a {
+                                                text-decoration: none
+                                }
+
+                                ul,
+                                ul ul {
+                                                margin: 0;
+                                                padding: 0;
+                                                list-style: none
+                                }
+
+                                #wraper {
+                                                width: 100%;
+                                                margin: 0 auto;
+                                                font-size: .8125em
+                                }
+
+                                .menu {
+                                                width: auto;
+                                                height: auto;
+                                                -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .73), 0 0 18px 0 rgba(0, 0, 0, .1);
+                                                -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .73), 0 0 18px 0 rgba(0, 0, 0, .1);
+                                                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .73), 0 0 18px 0 rgba(0, 0, 0, .1)
+                                }
+
+                                .menu>li>a {
+                                                background-color: #000;
+                                                background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgb(224, 231, 255)));
+                                                background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+                                                background-image: -moz-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+                                                background-image: -o-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+                                                background-image: -ms-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+                                                background-image: linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+                                                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#727a86', EndColorStr='#505864');
+                                                border-bottom: 0 solid #33373d;
+                                                -webkit-box-shadow: inset 0 1px 0 0 #878e98;
+                                                -moz-box-shadow: inset 0 1px 0 0 #878e98;
+                                                box-shadow: inset 0 1px 0 0 #878e98;
+                                                width: 100%;
+                                                height: 2.8em;
+                                                line-height: 2.8em;
+                                                text-indent: 7.9em;
+                                                display: block;
+                                                position: relative;
+                                                font-family: arial, Arial, Helvetica, sans-serif;
+                                                font-weight: 600;
+                                                color: #404040;
+                                                font-size: 1em;
+                                                text-shadow: 0 0 0 #000;
+                                                text-decoration: none;
+                                }
+
+                                .menu ul li a {
+                                                background: #fff;
+                                                border-bottom: 1px solid #efeff0;
+                                                width: 100%;
+                                                height: 2.8em;
+                                                line-height: 2.8em;
+                                                text-indent: 3.75em;
+                                                display: block;
+                                                position: relative;
+                                                font-family: arial, Arial, Helvetica, sans-serif;
+                                                font-size: 1em;
+                                                font-weight: 500;
+                                                color: #789;
+                                                text-decoration: none;
+                                }
+
+                                .menu ul li:last-child a {
+                                                border-bottom: 1px solid #33373d
+                                }
+
+                                .menu>li>a:hover,
+                                .menu>li>a.active {
+                                                background-color: #35afe3;
+                                                background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(224, 231, 255)), to(rgb(224, 231, 255)));
+                                                background-image: -webkit-linear-gradient(top, rgb(224, 231, 255), rgb(224, 231, 255));
+                                                background-image: -moz-linear-gradient(top, rgb(224, 231, 255), rgb(224, 231, 255));
+                                                background-image: -o-linear-gradient(top, rgb(224, 231, 255), rgb(224, 231, 255));
+                                                background-image: -ms-linear-gradient(top, rgb(224, 231, 255), rgb(224, 231, 255));
+                                                background-image: linear-gradient(top, rgb(224, 231, 255), rgb(224, 231, 255));
+                                                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#606060', EndColorStr='#202020');
+                                                border-bottom: 1px solid #404040;
+                                                -webkit-box-shadow: inset 0 1px 0 0 #404040;
+                                                -moz-box-shadow: inset 0 1px 0 0 #404040;
+                                                box-shadow: inset 0 1px 0 0 #404040
+                                }
+
+                                .menu>li>a.active {
+                                                border-bottom: 0 solid #404040
+                                }
+
+                                .menu>li>a:before {
+                                                content: '';
+                                               /* background-image: url(spriteupdate5.png?5);*/
+                                                background-repeat: no-repeat;
+                                                font-size: 36px;
+                                                height: 1em;
+                                                width: 1em;
+                                                position: absolute;
+                                                left: 55;
+                                                top: 50%;
+                                                margin: -.5em 0 0
+                                }
+
+                                @media only screen and (max-width:600px) {
+                                                .menu>li>a:before {
+                                                                left: 30
+                                                }
+                                }
+
+                             
+                                .menu>li>a span {
+                                                font-size: .95em;
+                                                display: inline-block;
+                                                position: absolute;
+                                                left: .3em;
+                                                top: 50%;
+                                                background: #fff;
+                                                line-height: 1em;
+                                                height: 1.5em;
+                                                padding: .3em .6em;
+                                                margin: -.8em 0 0;
+                                                color: #222d36;
+                                                text-indent: 0;
+                                                text-align: center;
+                                                -webkit-border-radius: .769em;
+                                                -moz-border-radius: .769em;
+                                                border-radius: .569em;
+                                                -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);
+                                                -moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);
+                                                box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, .16), 0 1px 0 0 rgba(63, 68, 74, .1);
+                                                text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+                                                font-weight: 500
+                                }
+
+                                .menu>li>a:hover span,
+                                .menu>li a.active span {
+                                                background: 404040
+                                }
+
+                                .menu>li>ul li a:before {
+                                                content: 'â–º';
+                                                font-size: 9px;
+                                                color: #789;
+                                                position: absolute;
+                                                width: 1em;
+                                                height: 1em;
+                                                top: 0;
+                                                left: -2.7em
+                                }
+
+                                .menu>li>ul li:hover a,
+                                .menu>li>ul li:hover a span,
+                                .menu>li>ul li:hover a:before {
+                                                color: #2e9afe
+                                }
+
+                                .menu ul>li>a span {
+                                                font-size: .857em;
+                                                display: inline-block;
+                                                position: absolute;
+                                                right: 1em;
+                                                top: 50%;/background: #fff;
+                                                border: 1px solid #d0d0d3;
+                                                line-height: 1em;
+                                                height: 1.5em;
+                                                padding: .4em .7em;
+                                                margin: -.9em 0 0;
+                                                color: #000;
+                                                text-indent: 0;
+                                                text-align: center;
+                                                -webkit-border-radius: .769em;
+                                                -moz-border-radius: 769em;
+                                                border-radius: 769em;
+                                                text-shadow: 0px 0px 0px rgba(255, 255, 255, .01);
+                                }
+
+                                div.sombreada_css3 {
+                                                background-color: #8baf1c;
+                                                width: 100%px;
+                                                padding: 12px;
+                                                color: #002399;
+                                                box-shadow: 0px 1px 1px #333;
+                                                -webkit-box-shadow: 0px 1px 1px #333;
+                                                -moz-box-shadow: 0px 1px 1px #333;
+                                }
+                                .imgtan {
+                                    
+                                    height: 1.5em;
+                                    width: 1.5em;
+                                    position: absolute;
+                                    left: 55px;
+                                    top: 50%;
+                                    margin: -.5em 0 0;
+                                    border-radius: 50%;
+                                    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+                                }
+
+                                .enlace {
+                                    text-decoration: none;
+                                }
+                                
+                                
+			@media screen and (min-width:0px) and (max-width:767px) {
+				.iframe-container iframe {
+					height: 266px
+				}
+				
+				.imgtan {
+                                    
+                                    height: 1.5em;
+                                    width: 1.5em;
+                                    position: absolute;
+                                    left: 55px;
+                                    top: 50%;
+                                    margin: -.5em 0 0;
+                                    border-radius: 50%;
+                                    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+                                }
+
+			}
+			
+			 @media only screen and (max-width:600px) {
+                                                body {
+                                                                font-size: 70%
+                                                }
+                                                
+                                                .imgtan {
+                                    
+                                    height: 1.5em;
+                                    width: 1.5em;
+                                    position: absolute;
+                                    left: 40px;
+                                    top: 50%;
+                                    margin: -.5em 0 0;
+                                    border-radius: 50%;
+                                    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+                                }
+
+            }
+                                
+                                .submenudata {
+                                    display: none;
+                                }
