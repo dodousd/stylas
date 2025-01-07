@@ -35,6 +35,11 @@
         background-image: url(//partidosenvivo.net/flags/de.webp);
 
     }
+    .KINGSLEAGUE > a:before {
+        background-image: url(//partidosenvivo.net/flags/kingsleague.png);
+
+    }
+
     .FRA > a:before {
         background-image: url(//partidosenvivo.net/flags/fr.webp);
 
@@ -266,11 +271,14 @@
         background-image: url(https://dodousd.github.io/stylas/YUTH.png);
     }
 
-    .EUROLEAGUEBASKET > a:before {
-        background-image: url(https://partidosenvivo.net/flags/euroleaguebasket.png);
+    .EUROBASKET > a:before {
+        background-image: url(/partidosenvivo.net/flags/euroleaguebasket.png);
     }
 
-    
+
+        .EUROLEAGUEBASKET > a:before {
+        background-image: url(//partidosenvivo.net/flags/eurocopabaske.png);
+    }
     .LEAGUESCUP > a:before {
         background-image: url(https://partidosenvivo.net/flags/leaguescup.png);
     }
