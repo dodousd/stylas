@@ -272,12 +272,12 @@
     }
 
     .EUROBASKET > a:before {
-        background-image: url(/partidosenvivo.net/flags/euroleaguebasket.png);
+        background-image: url(https://partidosenvivo.net/flags/euroleaguebasket.png);
     }
 
 
         .EUROLEAGUEBASKET > a:before {
-        background-image: url(//partidosenvivo.net/flags/eurocopabaske.png);
+        background-image: url(https://partidosenvivo.net/flags/eurocopabaske.png);
     }
     .LEAGUESCUP > a:before {
         background-image: url(https://partidosenvivo.net/flags/leaguescup.png);
